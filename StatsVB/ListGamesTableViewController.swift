@@ -9,8 +9,12 @@
 import Foundation
 import UIKit
 
-class ListGamesTableViewController: UITableViewController {    override func viewDidLoad() {
+class ListGamesTableViewController: UITableViewController {
+    override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
+        
     }
     public override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -26,4 +30,24 @@ class ListGamesTableViewController: UITableViewController {    override func vie
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 1
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+            case "displayMainScreen":
+                print("note cell tapped")
+            
+            case "newGame":
+                print("create game bar item tapped")
+            
+            default:
+                print("unexpected segue identifier")
+        }
+    }
+    
+    
+    
+    
 }

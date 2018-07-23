@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MGi-Mh-NHx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ptR-Dc-pnZ">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List Games Table View Controller-->
+        <!--Games-->
         <scene sceneID="3SH-h4-LRd">
             <objects>
                 <tableViewController id="MGi-Mh-NHx" customClass="ListGamesTableViewController" sceneMemberID="viewController">
@@ -54,6 +55,7 @@
                                 <connections>
                                     <outlet property="gameDate" destination="QKI-yl-71p" id="OTn-ch-9GU"/>
                                     <outlet property="gameTitleLabel" destination="ATS-2d-Vel" id="W11-L1-HYN"/>
+                                    <segue destination="WXK-YX-6aC" kind="show" identifier="displayMainScreen" id="uX2-b1-qwd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -62,10 +64,76 @@
                             <outlet property="delegate" destination="MGi-Mh-NHx" id="XxX-ep-gHc"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Games" id="0C6-QQ-HeY">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="ks0-NZ-JAE"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vpt-Tr-aoS">
+                            <connections>
+                                <segue destination="WXK-YX-6aC" kind="show" identifier="newGame" id="2gC-0C-FTj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zo8-MS-PE4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868.9453125" y="831.25"/>
+        </scene>
+        <!--Game Title-->
+        <scene sceneID="oOe-gX-z3z">
+            <objects>
+                <viewController id="WXK-YX-6aC" customClass="MainScreenViewController" customModule="StatsVB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xQE-Z6-lrR">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pqh-eB-r7C">
+                                <rect key="frame" x="15" y="74" width="994" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cs9-By-mJo" firstAttribute="trailing" secondItem="Pqh-eB-r7C" secondAttribute="trailing" constant="15" id="01G-6W-7ZC"/>
+                            <constraint firstItem="Pqh-eB-r7C" firstAttribute="top" secondItem="cs9-By-mJo" secondAttribute="top" constant="10" id="Fc9-Xa-7eH"/>
+                            <constraint firstItem="Pqh-eB-r7C" firstAttribute="leading" secondItem="cs9-By-mJo" secondAttribute="leading" constant="15" id="Ngz-xk-2W7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cs9-By-mJo"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Game Title" id="RFI-QP-EEP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uGs-hc-6cL">
+                            <connections>
+                                <segue destination="Xyk-5a-8m2" kind="unwind" identifier="cancel" unwindAction="unwindWithSegue:" id="76N-Uk-A6a"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yP0-Aa-pDF"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ff-se-C4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Xyk-5a-8m2" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1546.875" y="841.40625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EPN-XH-Hje">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ptR-Dc-pnZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n4T-pd-9xI">
+                        <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MGi-Mh-NHx" kind="relationship" relationship="rootViewController" id="JRT-Mu-dly"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gaJ-2h-e3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="144.7265625" y="831.25"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="2gC-0C-FTj"/>
+    </inferredMetricsTieBreakers>
 </document>
