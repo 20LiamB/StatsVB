@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F12009621064E1400057101 /* ListGamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12009521064E1400057101 /* ListGamesTableViewController.swift */; };
 		2F5E18F821064400004B8103 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E18F721064400004B8103 /* AppDelegate.swift */; };
 		2F5E18FA21064400004B8103 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E18F921064400004B8103 /* ViewController.swift */; };
 		2F5E18FD21064400004B8103 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E18FB21064400004B8103 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F12009521064E1400057101 /* ListGamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGamesTableViewController.swift; sourceTree = "<group>"; };
 		2F5E18F421064400004B8103 /* StatsVB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatsVB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5E18F721064400004B8103 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F5E18F921064400004B8103 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				2F5E190321064402004B8103 /* LaunchScreen.storyboard */,
 				2F5E190621064402004B8103 /* Info.plist */,
 				2F5E18FE21064400004B8103 /* StatsVB.xcdatamodeld */,
+				2F12009521064E1400057101 /* ListGamesTableViewController.swift */,
 			);
 			path = StatsVB;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F5E18FA21064400004B8103 /* ViewController.swift in Sources */,
+				2F12009621064E1400057101 /* ListGamesTableViewController.swift in Sources */,
 				2F5E190021064400004B8103 /* StatsVB.xcdatamodeld in Sources */,
 				2F5E18F821064400004B8103 /* AppDelegate.swift in Sources */,
 			);
