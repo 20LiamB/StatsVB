@@ -13,18 +13,48 @@
         <scene sceneID="3SH-h4-LRd">
             <objects>
                 <tableViewController id="MGi-Mh-NHx" customClass="ListGamesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="AK2-Av-FqJ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="AK2-Av-FqJ">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yVy-fG-WqO">
-                                <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listGamesTableViewCell" id="yVy-fG-WqO" customClass="ListNotesTableViewCell" customModule="StatsVB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="1024" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yVy-fG-WqO" id="ccw-Fy-tzN">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5hW-hJ-wvH" customClass="ListGamesTable">
+                                            <rect key="frame" x="15" y="0.0" width="994" height="59.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATS-2d-Vel">
+                                                    <rect key="frame" x="0.0" y="0.0" width="994" height="41.5"/>
+                                                    <accessibility key="accessibilityConfiguration" label="Game Title"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.32549019607843138" green="0.6588235294117647" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKI-yl-71p">
+                                                    <rect key="frame" x="0.0" y="41.5" width="994" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.40392156862745099" green="0.396078431372549" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="5hW-hJ-wvH" secondAttribute="bottom" id="2hR-nk-s10"/>
+                                        <constraint firstItem="5hW-hJ-wvH" firstAttribute="top" secondItem="ccw-Fy-tzN" secondAttribute="top" id="4IR-tq-x2N"/>
+                                        <constraint firstItem="5hW-hJ-wvH" firstAttribute="leading" secondItem="ccw-Fy-tzN" secondAttribute="leading" constant="15" id="SHn-FD-A92"/>
+                                        <constraint firstAttribute="trailing" secondItem="5hW-hJ-wvH" secondAttribute="trailing" constant="15" id="j29-iH-8BZ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="gameDate" destination="QKI-yl-71p" id="OTn-ch-9GU"/>
+                                    <outlet property="gameTitleLabel" destination="ATS-2d-Vel" id="W11-L1-HYN"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
