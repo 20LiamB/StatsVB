@@ -10,6 +10,13 @@ import Foundation
 import UIKit
 
 class ListGamesTableViewController: UITableViewController {
+    
+    var games = [Game](){
+        didSet{
+            tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -20,13 +27,15 @@ class ListGamesTableViewController: UITableViewController {
         return 1
     }
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return games.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listGamesTableViewCell", for: indexPath) as! ListGamesTableViewCell
-        cell.gameTitleLabel.text = "note's title"
-        cell.gameDate.text = "note's modification time"
+        
+        let game = games[indexPath.row]
+        cell.gameTitleLabel.text = game.title
+        cell.gameDate.text = game.date?.convertToString() ?? "unknown"
         
         return cell
     }
@@ -37,7 +46,13 @@ class ListGamesTableViewController: UITableViewController {
         
         switch identifier {
             case "displayMainScreen":
-                print("note cell tapped")
+                guard let indexPath = tableView.indexPathForSelectedRow else {return}
+            
+                let game = games[indexPath.row]
+            
+                let destination = segue.destination as! MainScreenViewController
+            
+                destination.game = game
             
             case "newGame":
                 print("create game bar item tapped")
@@ -45,9 +60,15 @@ class ListGamesTableViewController: UITableViewController {
             default:
                 print("unexpected segue identifier")
         }
+        
+        
     }
     
     
-    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            games.remove(at: indexPath.row)
+        }
+    }
     
 }
