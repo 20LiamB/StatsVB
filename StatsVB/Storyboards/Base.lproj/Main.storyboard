@@ -13,13 +13,13 @@
         <!--Games-->
         <scene sceneID="3SH-h4-LRd">
             <objects>
-                <tableViewController id="MGi-Mh-NHx" customClass="ListGamesTableViewController" sceneMemberID="viewController">
+                <tableViewController id="MGi-Mh-NHx" customClass="ListGamesTableViewController" customModule="StatsVB" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="AK2-Av-FqJ">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listGamesTableViewCell" id="yVy-fG-WqO" customClass="ListNotesTableViewCell" customModule="StatsVB" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listGamesTableViewCell" id="yVy-fG-WqO" customClass="ListGamesTableViewCell" customModule="StatsVB" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="1024" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yVy-fG-WqO" id="ccw-Fy-tzN">
@@ -33,7 +33,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="994" height="41.5"/>
                                                     <accessibility key="accessibilityConfiguration" label="Game Title"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.32549019607843138" green="0.6588235294117647" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.11372549019607843" green="0.32156862745098036" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKI-yl-71p">
@@ -53,8 +53,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="gameDate" destination="QKI-yl-71p" id="OTn-ch-9GU"/>
-                                    <outlet property="gameTitleLabel" destination="ATS-2d-Vel" id="W11-L1-HYN"/>
+                                    <outlet property="gameDate" destination="QKI-yl-71p" id="K22-c7-FYA"/>
+                                    <outlet property="gameTitleLabel" destination="ATS-2d-Vel" id="9mG-Zl-vM0"/>
                                     <segue destination="WXK-YX-6aC" kind="show" identifier="displayMainScreen" id="uX2-b1-qwd"/>
                                 </connections>
                             </tableViewCell>
@@ -65,8 +65,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Games" id="0C6-QQ-HeY">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="ks0-NZ-JAE"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="ks0-NZ-JAE">
+                            <color key="tintColor" red="0.1137254902" green="0.32156862749999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vpt-Tr-aoS">
+                            <color key="tintColor" red="0.1137254902" green="0.32156862749999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="WXK-YX-6aC" kind="show" identifier="newGame" id="2gC-0C-FTj"/>
                             </connections>
@@ -113,6 +116,38 @@
                 <exit id="Xyk-5a-8m2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1546.875" y="841.40625"/>
+        </scene>
+        <!--PlayerView-->
+        <scene sceneID="zFG-QY-db0">
+            <objects>
+                <viewController title="PlayerView" id="pjU-Ur-mNA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rA4-QC-t4c">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3cp-VC-E3r">
+                                <rect key="frame" x="80" y="30" width="864" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="playerNameEntered:" destination="8fn-gI-Rmg" eventType="editingDidEnd" id="T7T-Sa-2Cg"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3cp-VC-E3r" firstAttribute="leading" secondItem="FaQ-fq-MOC" secondAttribute="leading" constant="80" id="1gK-Id-rzy"/>
+                            <constraint firstItem="3cp-VC-E3r" firstAttribute="top" secondItem="FaQ-fq-MOC" secondAttribute="top" constant="10" id="MRi-ak-cvW"/>
+                            <constraint firstItem="FaQ-fq-MOC" firstAttribute="trailing" secondItem="3cp-VC-E3r" secondAttribute="trailing" constant="80" id="aX3-5N-PHs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FaQ-fq-MOC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oaK-RK-QA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8fn-gI-Rmg" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1559" y="1634"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EPN-XH-Hje">
