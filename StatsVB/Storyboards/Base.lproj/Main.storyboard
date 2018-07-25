@@ -69,7 +69,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vpt-Tr-aoS">
                             <color key="tintColor" red="0.1137254902" green="0.32156862749999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="WXK-YX-6aC" kind="show" identifier="newGame" id="2gC-0C-FTj"/>
+                                <segue destination="WXK-YX-6aC" kind="show" identifier="newGame" id="6GZ-mz-jOq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -469,6 +469,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2gC-0C-FTj"/>
+        <segue reference="6GZ-mz-jOq"/>
     </inferredMetricsTieBreakers>
 </document>
