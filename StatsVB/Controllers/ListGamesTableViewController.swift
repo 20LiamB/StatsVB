@@ -19,9 +19,11 @@ class ListGamesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        games = CoreDataHelper.retrieveGames()
     }
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
-        
+        games = CoreDataHelper.retrieveGames()
     }
     public override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -41,7 +43,6 @@ class ListGamesTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // 1
         guard let identifier = segue.identifier else { return }
         
         switch identifier {
@@ -67,7 +68,10 @@ class ListGamesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            games.remove(at: indexPath.row)
+            let gameToDelete = games[indexPath.row]
+            CoreDataHelper.delete(game: gameToDelete)
+            
+            games = CoreDataHelper.retrieveGames()
         }
     }
     

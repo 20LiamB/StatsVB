@@ -155,6 +155,8 @@
 		2F1200B82107BCCE00057101 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				2F1200B421078E7300057101 /* DateToStringConversion.swift */,
+				2F1200B62107BB8600057101 /* CoreDataHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -191,8 +193,6 @@
 				2F5E190121064402004B8103 /* Assets.xcassets */,
 				2F5E190621064402004B8103 /* Info.plist */,
 				2F5E18FE21064400004B8103 /* StatsVB.xcdatamodeld */,
-				2F1200B421078E7300057101 /* DateToStringConversion.swift */,
-				2F1200B62107BB8600057101 /* CoreDataHelper.swift */,
 			);
 			path = StatsVB;
 			sourceTree = "<group>";
