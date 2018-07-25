@@ -62,7 +62,7 @@ class MainScreenViewController: UIViewController {
     func leftPlayerButtonPressed(index: Int){
         if leftPlayers[index] == nil{
             newPlayer()
-        }
+        } 
         else{
             openPlayerScreen()
         }
