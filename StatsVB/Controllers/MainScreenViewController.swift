@@ -14,11 +14,14 @@ class MainScreenViewController: UIViewController {
     //scoreboard
     var leftScore: Int = 0
     var rightScore: Int = 0
+    var game: Game?
     @IBOutlet weak var scoreTextField: UITextView!
     @IBOutlet weak var leftAddToScore: UIButton!
     @IBOutlet weak var leftSubractFromScore: UIButton!
     @IBOutlet weak var rightAddToScore: UIButton!
     @IBOutlet weak var rightSubtractFromScore: UIButton!
+    @IBOutlet weak var popUpBlur: UIVisualEffectView!
+    @IBOutlet weak var titleTextField: UITextField!
     
     @IBAction func leftAdd(_ sender: Any) {
         leftScore += 1
@@ -50,7 +53,7 @@ class MainScreenViewController: UIViewController {
     
     
     //player button functions
-    @IBOutlet weak var popUpBlur: UIVisualEffectView!
+    
     @IBAction func showPopUp(_ sender: Any) {
         popUpBlur.isHidden = false
     }
@@ -105,8 +108,7 @@ class MainScreenViewController: UIViewController {
     
     
     
-    var game: Game?
-    @IBOutlet weak var titleTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -117,10 +119,10 @@ class MainScreenViewController: UIViewController {
         
         if let game = game {
             titleTextField.text = game.title
-            //scoreTextField.text = game.score
+            scoreTextField.text = game.score
         }else{
             titleTextField.text = ""
-            //scoreTextField.text = "0 - 0"
+            scoreTextField.text = "" //I changed this
         }
     }
     
@@ -130,16 +132,16 @@ class MainScreenViewController: UIViewController {
         switch identifier {
         case "save" where game != nil:
             game?.title = titleTextField.text ?? ""
-            //game?.score = scoreTextField.text ?? ""
+            game?.score = scoreTextField.text ?? ""
             game?.date = Date()
             
             CoreDataHelper.saveGame()
             
         case "save" where game == nil:
-            let game = CoreDataHelper.newGame
-            game().title = titleTextField.text ?? ""
-            //game().score = scoreTextField.text ?? ""
-            game().date = Date()
+            let game = CoreDataHelper.newGame()
+            game.title = titleTextField.text ?? ""
+            game.score = scoreTextField.text ?? ""
+            game.date = Date()
             
             CoreDataHelper.saveGame()
             

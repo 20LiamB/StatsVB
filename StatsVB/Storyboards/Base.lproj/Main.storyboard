@@ -93,14 +93,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oyT-tv-aUj">
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oyT-tv-aUj">
                                             <rect key="frame" x="324" y="213" width="375" height="342"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                     </subviews>
                                 </view>
-                                <blurEffect style="light"/>
+                                <vibrancyEffect>
+                                    <blurEffect style="prominent"/>
+                                </vibrancyEffect>
                             </visualEffectView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pqh-eB-r7C">
                                 <rect key="frame" x="15" y="74" width="994" height="32"/>
@@ -405,7 +407,6 @@
                         <outlet property="leftAddToScore" destination="GdL-fm-FfP" id="wJv-hE-iGq"/>
                         <outlet property="leftSubractFromScore" destination="r8r-o8-VRu" id="cZ4-vi-Vn6"/>
                         <outlet property="popUpBlur" destination="uDt-tJ-17p" id="aho-rj-4d1"/>
-                        <outlet property="popUpView" destination="oyT-tv-aUj" id="olE-9D-lAw"/>
                         <outlet property="rightAddToScore" destination="5ao-FO-HnM" id="CSa-Td-uYT"/>
                         <outlet property="rightSubtractFromScore" destination="i3w-DK-JNq" id="ISX-Hf-CFa"/>
                         <outlet property="scoreTextField" destination="Spp-Ff-7AZ" id="pyy-UQ-hys"/>
