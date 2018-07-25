@@ -11,6 +11,7 @@ import UIKit
 
 class MainScreenViewController: UIViewController {
     
+    //scoreboard
     var leftScore: Int = 0
     var rightScore: Int = 0
     @IBOutlet weak var scoreTextField: UITextView!
@@ -45,8 +46,57 @@ class MainScreenViewController: UIViewController {
         scoreTextField.text = "\(leftScore) - \(rightScore)"
     }
     
+
     
     
+    //player button functions
+    @IBOutlet weak var popUpBlur: UIVisualEffectView!
+    @IBAction func showPopUp(_ sender: Any) {
+        popUpBlur.isHidden = false
+    }
+    var leftPlayers: [Player] = []
+    var rightPlayers: [Player] = []
+    func leftPlayerButtonPressed(index: Int){
+        if leftPlayers[index] == nil{
+            newPlayer()
+        }
+        else{
+            openPlayerScreen()
+        }
+    }
+    
+    func newPlayer(){
+        
+    }
+    func openPlayerScreen(){
+//        switch indentifier {
+//        case "OH":
+//            openOHView()
+//        case "RH":
+//            openRHView()
+//        case "S":
+//            openSView()
+//        case "L":
+//            openLView()
+//        case "MB":
+//            openMBView()
+//        }
+    }
+    func openOHView(){
+        
+    }
+    func openRHView(){
+        
+    }
+    func openSView(){
+        
+    }
+    func openLView(){
+        
+    }
+    func openMBView(){
+        
+    }
     
     
     
@@ -59,6 +109,7 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,8 +118,7 @@ class MainScreenViewController: UIViewController {
         if let game = game {
             titleTextField.text = game.title
             //scoreTextField.text = game.score
-        }
-        else{
+        }else{
             titleTextField.text = ""
             //scoreTextField.text = "0 - 0"
         }
@@ -80,7 +130,7 @@ class MainScreenViewController: UIViewController {
         switch identifier {
         case "save" where game != nil:
             game?.title = titleTextField.text ?? ""
-            game?.score = scoreTextField.text ?? ""
+            //game?.score = scoreTextField.text ?? ""
             game?.date = Date()
             
             CoreDataHelper.saveGame()
@@ -88,7 +138,7 @@ class MainScreenViewController: UIViewController {
         case "save" where game == nil:
             let game = CoreDataHelper.newGame
             game().title = titleTextField.text ?? ""
-            game().score = scoreTextField.text ?? ""
+            //game().score = scoreTextField.text ?? ""
             game().date = Date()
             
             CoreDataHelper.saveGame()

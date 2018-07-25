@@ -81,11 +81,27 @@
         <!--Main Screen View Controller-->
         <scene sceneID="oOe-gX-z3z">
             <objects>
-                <viewController id="WXK-YX-6aC" customClass="MainScreenViewController" customModule="StatsVB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sbPopUpID" id="WXK-YX-6aC" customClass="MainScreenViewController" customModule="StatsVB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xQE-Z6-lrR">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDt-tJ-17p">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="jdQ-dC-2vH">
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oyT-tv-aUj">
+                                            <rect key="frame" x="324" y="213" width="375" height="342"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pqh-eB-r7C">
                                 <rect key="frame" x="15" y="74" width="994" height="32"/>
                                 <nil key="textColor"/>
@@ -176,6 +192,10 @@
                                 <state key="normal" title="Player">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="showPopUp:" destination="WXK-YX-6aC" eventType="touchUpInside" id="H3D-hG-z1k"/>
+                                    <action selector="showPopUp:" destination="Xyk-5a-8m2" eventType="touchUpInside" id="LBd-o0-j7C"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5C-y1-sGS">
                                 <rect key="frame" x="20" y="306" width="270" height="70"/>
@@ -252,6 +272,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="110"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GdL-fm-FfP">
+                                <rect key="frame" x="398" y="214" width="30" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="leftAdd:" destination="WXK-YX-6aC" eventType="touchUpInside" id="tEj-cY-92M"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8r-o8-VRu">
                                 <rect key="frame" x="436" y="214" width="30" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
@@ -280,16 +310,6 @@
                                 </state>
                                 <connections>
                                     <action selector="rightSubtract:" destination="WXK-YX-6aC" eventType="touchUpInside" id="EPI-AM-4b9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GdL-fm-FfP">
-                                <rect key="frame" x="398" y="214" width="30" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="leftAdd:" destination="WXK-YX-6aC" eventType="touchUpInside" id="tEj-cY-92M"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -384,6 +404,8 @@
                     <connections>
                         <outlet property="leftAddToScore" destination="GdL-fm-FfP" id="wJv-hE-iGq"/>
                         <outlet property="leftSubractFromScore" destination="r8r-o8-VRu" id="cZ4-vi-Vn6"/>
+                        <outlet property="popUpBlur" destination="uDt-tJ-17p" id="aho-rj-4d1"/>
+                        <outlet property="popUpView" destination="oyT-tv-aUj" id="olE-9D-lAw"/>
                         <outlet property="rightAddToScore" destination="5ao-FO-HnM" id="CSa-Td-uYT"/>
                         <outlet property="rightSubtractFromScore" destination="i3w-DK-JNq" id="ISX-Hf-CFa"/>
                         <outlet property="scoreTextField" destination="Spp-Ff-7AZ" id="pyy-UQ-hys"/>
