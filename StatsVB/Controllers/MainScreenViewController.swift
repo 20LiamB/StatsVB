@@ -22,6 +22,7 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var rightSubtractFromScore: UIButton!
     @IBOutlet weak var popUpBlur: UIVisualEffectView!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var leftPlayer1: UIButton!
     
     @IBAction func leftAdd(_ sender: Any) {
         leftScore += 1
@@ -48,15 +49,34 @@ class MainScreenViewController: UIViewController {
     func updateScore(){
         scoreTextField.text = "\(leftScore) - \(rightScore)"
     }
+    let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
+    
+    let newPlayerAction = UIAlertAction(title: "New Player", style: .default) { (action:UIAlertAction) in
+        print("You've pressed New Player");
+    }
+    let editPlayerAction = UIAlertAction(title: "Edit Player", style: .default) { (action:UIAlertAction) in
+        print("You've pressed Edit Player");
+    }
+    
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
+        print("You've pressed cancel");
+    }
+    func createAlert(){
+        self.present(alert, animated: true, completion: nil)
+        
+        alert.addAction(newPlayerAction)
+        alert.addAction(editPlayerAction)
+        alert.addAction(cancelAction)
+    }
+    
+    
+   
     
 
     
     
     //player button functions
-    
-    @IBAction func showPopUp(_ sender: Any) {
-        popUpBlur.isHidden = false
-    }
+
     var leftPlayers: [Player] = []
     var rightPlayers: [Player] = []
     func leftPlayerButtonPressed(index: Int){
@@ -64,54 +84,39 @@ class MainScreenViewController: UIViewController {
             newPlayer()
         } 
         else{
-            openPlayerScreen()
+            print("open player screen")
         }
     }
     
     func newPlayer(){
         
     }
-    func openPlayerScreen(){
-//        switch indentifier {
-//        case "OH":
-//            openOHView()
-//        case "RH":
-//            openRHView()
-//        case "S":
-//            openSView()
-//        case "L":
-//            openLView()
-//        case "MB":
-//            openMBView()
-//        }
-    }
-    func openOHView(){
+    
+    @objc func normalTap(_ sender: UIGestureRecognizer){
         
-    }
-    func openRHView(){
-        
-    }
-    func openSView(){
-        
-    }
-    func openLView(){
-        
-    }
-    func openMBView(){
-        
+        print("Normal tap")
     }
     
-    
-    
-    
-    
-    
-    
-    
+    @objc func longTap(_ sender: UIGestureRecognizer){
+        print("Long tap")
+        if sender.state == .ended {
+            print("UIGestureRecognizerStateEnded")
+        }
+        else if sender.state == .began {
+            print("UIGestureRecognizerStateBegan.")
+            createAlert()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(normalTap(_:)))
+        tapGesture.numberOfTapsRequired = 1
+        leftPlayer1.addGestureRecognizer(tapGesture)
+        
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+        leftPlayer1.addGestureRecognizer(longGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {

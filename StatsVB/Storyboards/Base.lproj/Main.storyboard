@@ -86,41 +86,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDt-tJ-17p">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="jdQ-dC-2vH">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oyT-tv-aUj">
-                                            <rect key="frame" x="324" y="213" width="375" height="342"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayn-cW-Y4B">
-                                                    <rect key="frame" x="49" y="208" width="187" height="28"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                    <state key="normal" title="New Player"/>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.makesToBounds" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="25"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="oyT-tv-aUj" firstAttribute="leading" secondItem="jdQ-dC-2vH" secondAttribute="leading" constant="324" id="AaX-Y7-MS7"/>
-                                        <constraint firstItem="oyT-tv-aUj" firstAttribute="centerX" secondItem="jdQ-dC-2vH" secondAttribute="centerX" id="KbE-9D-Z6H"/>
-                                        <constraint firstItem="oyT-tv-aUj" firstAttribute="top" secondItem="jdQ-dC-2vH" secondAttribute="top" constant="213" id="Syj-3f-h6E"/>
-                                        <constraint firstItem="oyT-tv-aUj" firstAttribute="centerY" secondItem="jdQ-dC-2vH" secondAttribute="centerY" id="ipE-i3-OxC"/>
-                                    </constraints>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pqh-eB-r7C">
                                 <rect key="frame" x="15" y="74" width="994" height="32"/>
                                 <nil key="textColor"/>
@@ -253,10 +218,6 @@
                                         <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="showPopUp:" destination="WXK-YX-6aC" eventType="touchUpInside" id="H3D-hG-z1k"/>
-                                    <action selector="showPopUp:" destination="Xyk-5a-8m2" eventType="touchUpInside" id="LBd-o0-j7C"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5C-y1-sGS">
                                 <rect key="frame" x="20" y="306" width="270" height="70"/>
@@ -494,8 +455,8 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="leftAddToScore" destination="GdL-fm-FfP" id="wJv-hE-iGq"/>
+                        <outlet property="leftPlayer1" destination="qTU-vn-KF6" id="VXP-X7-ciA"/>
                         <outlet property="leftSubractFromScore" destination="r8r-o8-VRu" id="cZ4-vi-Vn6"/>
-                        <outlet property="popUpBlur" destination="uDt-tJ-17p" id="aho-rj-4d1"/>
                         <outlet property="rightAddToScore" destination="5ao-FO-HnM" id="CSa-Td-uYT"/>
                         <outlet property="rightSubtractFromScore" destination="i3w-DK-JNq" id="ISX-Hf-CFa"/>
                         <outlet property="scoreTextField" destination="Spp-Ff-7AZ" id="pyy-UQ-hys"/>
