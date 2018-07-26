@@ -20,7 +20,6 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var leftSubractFromScore: UIButton!
     @IBOutlet weak var rightAddToScore: UIButton!
     @IBOutlet weak var rightSubtractFromScore: UIButton!
-    @IBOutlet weak var popUpBlur: UIVisualEffectView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var leftPlayer1: UIButton!
     
@@ -117,6 +116,13 @@ class MainScreenViewController: UIViewController {
         
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
         leftPlayer1.addGestureRecognizer(longGesture)
+        
+        var savedLeftScore = game?.leftScore
+        
+        if let game = game {
+            leftScore = Int(game.leftScore)
+            rightScore = Int(game.rightScore)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -138,6 +144,8 @@ class MainScreenViewController: UIViewController {
         case "save" where game != nil:
             game?.title = titleTextField.text ?? ""
             game?.score = scoreTextField.text ?? ""
+            game?.leftScore = Int32(leftScore)
+            game?.rightScore = Int32(rightScore)
             game?.date = Date()
             
             CoreDataHelper.saveGame()
@@ -146,6 +154,8 @@ class MainScreenViewController: UIViewController {
             let game = CoreDataHelper.newGame()
             game.title = titleTextField.text ?? ""
             game.score = scoreTextField.text ?? ""
+            game.leftScore = Int32(Int16(leftScore))
+            game.rightScore = Int32(Int16(rightScore))
             game.date = Date()
             
             CoreDataHelper.saveGame()

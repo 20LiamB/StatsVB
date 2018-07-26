@@ -42,7 +42,7 @@ protocol DropDownProtocol{
 class DropDownButton: UIButton, DropDownProtocol{
     func dropDownPressed(string: String) {
         self.setTitle(string, for: .normal)
-        
+        self.dismissDropDown()
     }
     
     var dropView = DropDownView()
@@ -106,6 +106,18 @@ class DropDownButton: UIButton, DropDownProtocol{
         
     }
     
+    func dismissDropDown(){
+        isOpen = false
+        NSLayoutConstraint.deactivate([self.height])
+        self.height.constant = 0
+        NSLayoutConstraint.activate([self.height])
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            self.dropView.center.y += self.dropView.frame.height/2
+            self.dropView.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -157,7 +169,7 @@ class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate.dropDownPressed(string: dropDownOptions[indexPath.row])
-        
+        self.tableView.deselectRow(at:  indexPath, animated: true)
         print(dropDownOptions[indexPath.row])
     }
 }
