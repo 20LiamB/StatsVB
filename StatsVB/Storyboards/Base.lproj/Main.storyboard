@@ -93,9 +93,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oyT-tv-aUj">
+                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oyT-tv-aUj">
                                             <rect key="frame" x="324" y="213" width="375" height="342"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayn-cW-Y4B">
+                                                    <rect key="frame" x="49" y="208" width="187" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <state key="normal" title="New Player"/>
+                                                </button>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.makesToBounds" value="YES"/>
@@ -105,6 +112,12 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="oyT-tv-aUj" firstAttribute="leading" secondItem="jdQ-dC-2vH" secondAttribute="leading" constant="324" id="AaX-Y7-MS7"/>
+                                        <constraint firstItem="oyT-tv-aUj" firstAttribute="centerX" secondItem="jdQ-dC-2vH" secondAttribute="centerX" id="KbE-9D-Z6H"/>
+                                        <constraint firstItem="oyT-tv-aUj" firstAttribute="top" secondItem="jdQ-dC-2vH" secondAttribute="top" constant="213" id="Syj-3f-h6E"/>
+                                        <constraint firstItem="oyT-tv-aUj" firstAttribute="centerY" secondItem="jdQ-dC-2vH" secondAttribute="centerY" id="ipE-i3-OxC"/>
+                                    </constraints>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
