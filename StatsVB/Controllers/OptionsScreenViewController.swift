@@ -12,6 +12,8 @@ import UIKit
 class OptionsScreenViewController: UIViewController{
     var position = ""
     var button = DropDownButton()
+    var myPlayer = Player()
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         
@@ -21,14 +23,13 @@ class OptionsScreenViewController: UIViewController{
         
         self.view.addSubview(button)
         
-        
         button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
         button.widthAnchor.constraint(equalToConstant: 150).isActive = true
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        button.dropView.dropDownOptions = ["",""]
+        button.dropView.dropDownOptions = ["Outside Hitter","Right Side Hitter", "Setter", "Libero", "Middle Blocker"]
     }
     
     func setPosition(newPos: String){
@@ -43,6 +44,7 @@ protocol DropDownProtocol{
 class DropDownButton: UIButton, DropDownProtocol{
     func dropDownPressed(string: String) {
         self.setTitle(string, for: .normal)
+        
         self.dismissDropDown()
     }
     
@@ -52,7 +54,7 @@ class DropDownButton: UIButton, DropDownProtocol{
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.darkGray
+        self.backgroundColor = UIColor.lightGray
         
         dropView = DropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         dropView.delegate = self
@@ -133,7 +135,7 @@ class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource{
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        tableView.backgroundColor = UIColor.darkGray
+        tableView.backgroundColor = UIColor.lightGray
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -164,7 +166,7 @@ class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource{
         var cell = UITableViewCell()
         
         cell.textLabel?.text = dropDownOptions[indexPath.row]
-        cell.backgroundColor = UIColor.darkGray
+        cell.backgroundColor = UIColor.lightGray
         return cell
     }
     

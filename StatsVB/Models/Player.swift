@@ -10,4 +10,5 @@ import Foundation
 
 class Player{
     var name = ""
+    var position = Position()
 }

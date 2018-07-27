@@ -9,7 +9,7 @@
 import Foundation
 
 class Position {
-    
+    var positionName = ""
 //    var yourPos: Position
 //    var positions = ["OH" : OutsideHitter(),
 //                     "RH" : RightSideHitter(),

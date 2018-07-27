@@ -27,6 +27,7 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var hiddenMenuView: UIView!
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var newPlayerButton: UIButton!
+    @IBOutlet weak var newPlayerMenu: UIView!
     
     
     
@@ -88,6 +89,7 @@ class MainScreenViewController: UIViewController {
         
     }
     
+    
     @objc func normalTap(_ sender: UIGestureRecognizer){
         
         print("Normal tap")
@@ -103,6 +105,10 @@ class MainScreenViewController: UIViewController {
 //            createAlert()
             hiddenMenuView.isHidden = false
         }
+    }
+    @IBAction func newPlayerPressed(_ sender: Any) {
+        hiddenMenuView.isHidden = true
+        newPlayerMenu.isHidden = false
     }
     
     override func viewDidLoad() {
