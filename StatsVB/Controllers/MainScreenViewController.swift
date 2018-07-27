@@ -25,6 +25,11 @@ class MainScreenViewController: UIViewController {
     var leftPlayerList: [Player?] = [nil, nil, nil, nil, nil, nil]
     var rightPlayerList: [Player?] = [nil, nil, nil, nil, nil, nil]
     @IBOutlet weak var hiddenMenuView: UIView!
+    @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var newPlayerButton: UIButton!
+    
+    
+    
     
     @IBAction func leftAdd(_ sender: Any) {
         leftScore += 1
@@ -79,7 +84,6 @@ class MainScreenViewController: UIViewController {
     
     
     //player button functions
-    
     func newPlayer(){
         
     }

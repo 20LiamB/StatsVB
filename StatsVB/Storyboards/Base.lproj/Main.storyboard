@@ -377,6 +377,14 @@
                                                 <state key="normal" title="New Player">
                                                     <color key="titleColor" red="0.1137254902" green="0.32156862749999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="pjU-Ur-mNA" kind="show" identifier="newPlayerSegue" id="5ZV-Ji-VFf"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDe-7L-f0m">
                                                 <rect key="frame" x="46" y="167" width="208" height="35"/>
@@ -385,6 +393,11 @@
                                                 <state key="normal" title="Edit Player">
                                                     <color key="titleColor" red="0.1137254902" green="0.32156862749999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMX-ml-YcS">
                                                 <rect key="frame" x="46" y="212" width="208" height="35"/>
@@ -393,26 +406,54 @@
                                                 <state key="normal" title="Cancel">
                                                     <color key="titleColor" red="0.1137254902" green="0.32156862749999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </button>
+                                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wh4-op-odF">
+                                                <rect key="frame" x="20" y="49" width="260" height="54"/>
+                                                <color key="backgroundColor" red="0.1137254902" green="0.32156862749999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="54" id="4eQ-9N-yXM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="RMX-ml-YcS" firstAttribute="top" secondItem="QDe-7L-f0m" secondAttribute="bottom" constant="10" id="D1X-ut-Aj4"/>
                                             <constraint firstItem="RMX-ml-YcS" firstAttribute="leading" secondItem="i1K-mb-W96" secondAttribute="leading" constant="46" id="Ior-cQ-LyP"/>
                                             <constraint firstItem="QDe-7L-f0m" firstAttribute="height" secondItem="0RO-bw-tuY" secondAttribute="height" id="JT4-a5-x4T"/>
+                                            <constraint firstItem="wh4-op-odF" firstAttribute="leading" secondItem="i1K-mb-W96" secondAttribute="leading" constant="20" id="M6D-Vb-tcd"/>
                                             <constraint firstAttribute="bottom" secondItem="RMX-ml-YcS" secondAttribute="bottom" constant="53" id="QW3-fA-rzY"/>
                                             <constraint firstItem="QDe-7L-f0m" firstAttribute="leading" secondItem="0RO-bw-tuY" secondAttribute="leading" id="Spp-Qu-PjQ"/>
                                             <constraint firstAttribute="trailing" secondItem="RMX-ml-YcS" secondAttribute="trailing" constant="46" id="Sqc-dE-vSS"/>
                                             <constraint firstItem="RMX-ml-YcS" firstAttribute="height" secondItem="0RO-bw-tuY" secondAttribute="height" id="W5F-qy-Y7q"/>
+                                            <constraint firstItem="0RO-bw-tuY" firstAttribute="top" secondItem="wh4-op-odF" secondAttribute="bottom" constant="19" id="ZW6-Uh-wz5"/>
                                             <constraint firstItem="QDe-7L-f0m" firstAttribute="width" secondItem="0RO-bw-tuY" secondAttribute="width" id="agZ-Es-jaJ"/>
                                             <constraint firstItem="0RO-bw-tuY" firstAttribute="leading" secondItem="i1K-mb-W96" secondAttribute="leading" constant="46" id="n91-oQ-2Jn"/>
                                             <constraint firstItem="QDe-7L-f0m" firstAttribute="top" secondItem="0RO-bw-tuY" secondAttribute="bottom" constant="10" id="ogg-CR-QAu"/>
                                             <constraint firstItem="QDe-7L-f0m" firstAttribute="leading" secondItem="i1K-mb-W96" secondAttribute="leading" constant="46" id="rXO-za-hKm"/>
+                                            <constraint firstAttribute="trailing" secondItem="wh4-op-odF" secondAttribute="trailing" constant="20" id="tvk-zE-muo"/>
                                             <constraint firstAttribute="trailing" secondItem="0RO-bw-tuY" secondAttribute="trailing" constant="46" id="vJo-Dn-iFt"/>
                                             <constraint firstItem="RMX-ml-YcS" firstAttribute="width" secondItem="0RO-bw-tuY" secondAttribute="width" id="vej-5h-7J5"/>
                                             <constraint firstAttribute="trailing" secondItem="QDe-7L-f0m" secondAttribute="trailing" constant="46" id="wjI-U8-LZB"/>
                                             <constraint firstItem="RMX-ml-YcS" firstAttribute="leading" secondItem="0RO-bw-tuY" secondAttribute="leading" id="ziu-SX-4Bh"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -521,6 +562,8 @@
                         <outlet property="leftAddToScore" destination="GdL-fm-FfP" id="wJv-hE-iGq"/>
                         <outlet property="leftPlayer1" destination="qTU-vn-KF6" id="VXP-X7-ciA"/>
                         <outlet property="leftSubractFromScore" destination="r8r-o8-VRu" id="cZ4-vi-Vn6"/>
+                        <outlet property="menuView" destination="i1K-mb-W96" id="30p-Pu-1Ab"/>
+                        <outlet property="newPlayerButton" destination="0RO-bw-tuY" id="nee-fJ-Zjq"/>
                         <outlet property="rightAddToScore" destination="5ao-FO-HnM" id="CSa-Td-uYT"/>
                         <outlet property="rightSubtractFromScore" destination="i3w-DK-JNq" id="ISX-Hf-CFa"/>
                         <outlet property="scoreTextField" destination="Spp-Ff-7AZ" id="pyy-UQ-hys"/>
@@ -532,16 +575,16 @@
             </objects>
             <point key="canvasLocation" x="1546.875" y="841.40625"/>
         </scene>
-        <!--PlayerView-->
+        <!--New Player -->
         <scene sceneID="zFG-QY-db0">
             <objects>
-                <viewController title="PlayerView" id="pjU-Ur-mNA" sceneMemberID="viewController">
+                <viewController title="New Player " id="pjU-Ur-mNA" customClass="OptionsScreenViewController" customModule="StatsVB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rA4-QC-t4c">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3cp-VC-E3r">
-                                <rect key="frame" x="80" y="30" width="864" height="30"/>
+                                <rect key="frame" x="80" y="74" width="864" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
