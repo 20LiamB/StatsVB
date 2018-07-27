@@ -24,6 +24,7 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var leftPlayer1: UIButton!
     var leftPlayerList: [Player?] = [nil, nil, nil, nil, nil, nil]
     var rightPlayerList: [Player?] = [nil, nil, nil, nil, nil, nil]
+    @IBOutlet weak var hiddenMenuView: UIView!
     
     @IBAction func leftAdd(_ sender: Any) {
         leftScore += 1
@@ -96,6 +97,7 @@ class MainScreenViewController: UIViewController {
         else if sender.state == .began {
             print("UIGestureRecognizerStateBegan.")
 //            createAlert()
+            hiddenMenuView.isHidden = false
         }
     }
     
