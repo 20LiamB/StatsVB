@@ -19,8 +19,8 @@
 		2F1200B321069B5F00057101 /* ViewController 15-51-56-018.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1200B221069B5E00057101 /* ViewController 15-51-56-018.swift */; };
 		2F1200B521078E7300057101 /* DateToStringConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1200B421078E7300057101 /* DateToStringConversion.swift */; };
 		2F1200B72107BB8600057101 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1200B62107BB8600057101 /* CoreDataHelper.swift */; };
-		2F1200C2210A3E2500057101 /* OptionsSceen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F1200C1210A3E2500057101 /* OptionsSceen.storyboard */; };
 		2F1200C6210A3E8000057101 /* OptionsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1200C5210A3E8000057101 /* OptionsScreenViewController.swift */; };
+		2F1200C8210B81A100057101 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1200C7210B81A100057101 /* Storyboard+Utility.swift */; };
 		2F5E18F821064400004B8103 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E18F721064400004B8103 /* AppDelegate.swift */; };
 		2F5E18FD21064400004B8103 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E18FB21064400004B8103 /* Main.storyboard */; };
 		2F5E190021064400004B8103 /* StatsVB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E18FE21064400004B8103 /* StatsVB.xcdatamodeld */; };
@@ -60,8 +60,8 @@
 		2F1200B221069B5E00057101 /* ViewController 15-51-56-018.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController 15-51-56-018.swift"; path = "../../../../../.Trash/ViewController 15-51-56-018.swift"; sourceTree = "<group>"; };
 		2F1200B421078E7300057101 /* DateToStringConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringConversion.swift; sourceTree = "<group>"; };
 		2F1200B62107BB8600057101 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		2F1200C1210A3E2500057101 /* OptionsSceen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OptionsSceen.storyboard; sourceTree = "<group>"; };
 		2F1200C5210A3E8000057101 /* OptionsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsScreenViewController.swift; sourceTree = "<group>"; };
+		2F1200C7210B81A100057101 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		2F5E18F421064400004B8103 /* StatsVB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatsVB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5E18F721064400004B8103 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F5E18FC21064400004B8103 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +109,7 @@
 				2F120099210684B900057101 /* MainScreenViewController.swift */,
 				2F12009521064E1400057101 /* ListGamesTableViewController.swift */,
 				2F1200C5210A3E8000057101 /* OptionsScreenViewController.swift */,
+				2F1200C7210B81A100057101 /* Storyboard+Utility.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -118,7 +119,6 @@
 			children = (
 				2F5E18FB21064400004B8103 /* Main.storyboard */,
 				2F5E190321064402004B8103 /* LaunchScreen.storyboard */,
-				2F1200C1210A3E2500057101 /* OptionsSceen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -319,7 +319,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F1200C2210A3E2500057101 /* OptionsSceen.storyboard in Resources */,
 				2F5E190521064402004B8103 /* LaunchScreen.storyboard in Resources */,
 				2F5E190221064402004B8103 /* Assets.xcassets in Resources */,
 				2F5E18FD21064400004B8103 /* Main.storyboard in Resources */,
@@ -358,6 +357,7 @@
 				2F5E190021064400004B8103 /* StatsVB.xcdatamodeld in Sources */,
 				2F1200A6210696F100057101 /* OutsideHitter.swift in Sources */,
 				2F1200AD2106974800057101 /* Libero.swift in Sources */,
+				2F1200C8210B81A100057101 /* Storyboard+Utility.swift in Sources */,
 				2F5E18F821064400004B8103 /* AppDelegate.swift in Sources */,
 				2F1200AB2106973E00057101 /* Setter.swift in Sources */,
 				2F12009A210684B900057101 /* MainScreenViewController.swift in Sources */,

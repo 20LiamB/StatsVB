@@ -47,35 +47,48 @@ class MainScreenViewController: UIViewController {
     
     func updateScore(){
         scoreTextField.text = "\(leftScore) - \(rightScore)"
+        
     }
-    let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
+    let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
     
-    let newPlayerAction = UIAlertAction(title: "New Player", style: .default) { (action:UIAlertAction) in
-        print("You've pressed New Player");
+//    let newPlayerAction = UIAlertAction(title: "New Player", style: .default) { (action:UIAlertAction) in
+//        print("You've pressed New Player")
+//        self.performSegue(withIdentifier: "segueToOptions", sender: nil)
+//    }
+    
+    func presentViewController(){
+        let initialViewController = UIStoryboard.initialViewController(for: .optionsScreen)
+        self.view.window?.rootViewController = initialViewController
+        self.view.window?.makeKeyAndVisible()
     }
+    
+
     let editPlayerAction = UIAlertAction(title: "Edit Player", style: .default) { (action:UIAlertAction) in
         print("You've pressed Edit Player");
     }
     
     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
-        print("You've pressed cancel");
+        print("You've pressed cancel")
     }
     func createAlert(){
         self.present(alert, animated: true, completion: nil)
         
-        alert.addAction(newPlayerAction)
+        alert.addAction(UIAlertController(title: "New Player", style: .default, handler: {(action) in
+                print("You've pressed New Player")
+                self.performSegue(withIdentifier: "segueToOptions", sender: nil)
+            }))
         alert.addAction(editPlayerAction)
         alert.addAction(cancelAction)
     }
     
     
-   
     
-
+    
+    
     
     
     //player button functions
-
+    
     var leftPlayers: [Player] = []
     var rightPlayers: [Player] = []
     func leftPlayerButtonPressed(index: Int){
