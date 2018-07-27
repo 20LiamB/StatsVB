@@ -22,6 +22,8 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var rightSubtractFromScore: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var leftPlayer1: UIButton!
+    var leftPlayerList: [Player?] = [nil, nil, nil, nil, nil, nil]
+    var rightPlayerList: [Player?] = [nil, nil, nil, nil, nil, nil]
     
     @IBAction func leftAdd(_ sender: Any) {
         leftScore += 1
@@ -48,25 +50,26 @@ class MainScreenViewController: UIViewController {
     func updateScore(){
         scoreTextField.text = "\(leftScore) - \(rightScore)"
     }
-    let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
     
-    let newPlayerAction = UIAlertAction(title: "New Player", style: .default) { (action:UIAlertAction) in
-        print("You've pressed New Player");
-    }
-    let editPlayerAction = UIAlertAction(title: "Edit Player", style: .default) { (action:UIAlertAction) in
-        print("You've pressed Edit Player");
-    }
-    
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
-        print("You've pressed cancel");
-    }
-    func createAlert(){
-        self.present(alert, animated: true, completion: nil)
-        
-        alert.addAction(newPlayerAction)
-        alert.addAction(editPlayerAction)
-        alert.addAction(cancelAction)
-    }
+//    let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
+//
+//    let newPlayerAction = UIAlertAction(title: "New Player", style: .default) { (action:UIAlertAction) in
+//        print("You've pressed New Player");
+//    }
+//    let editPlayerAction = UIAlertAction(title: "Edit Player", style: .default) { (action:UIAlertAction) in
+//        print("You've pressed Edit Player");
+//    }
+//
+//    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
+//        print("You've pressed cancel");
+//    }
+//    func createAlert(){
+//        self.present(alert, animated: true, completion: nil)
+//
+//        alert.addAction(newPlayerAction)
+//        alert.addAction(editPlayerAction)
+//        alert.addAction(cancelAction)
+//    }
     
     
    
@@ -75,17 +78,6 @@ class MainScreenViewController: UIViewController {
     
     
     //player button functions
-
-    var leftPlayers: [Player] = []
-    var rightPlayers: [Player] = []
-    func leftPlayerButtonPressed(index: Int){
-        if leftPlayers[index] == nil{
-            newPlayer()
-        } 
-        else{
-            print("open player screen")
-        }
-    }
     
     func newPlayer(){
         
@@ -103,7 +95,7 @@ class MainScreenViewController: UIViewController {
         }
         else if sender.state == .began {
             print("UIGestureRecognizerStateBegan.")
-            createAlert()
+//            createAlert()
         }
     }
     

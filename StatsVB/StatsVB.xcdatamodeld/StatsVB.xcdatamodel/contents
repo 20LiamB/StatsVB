@@ -7,13 +7,7 @@
         <attribute name="score" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Player" representedClassName="Player" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <elements>
         <element name="Game" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="Player" positionX="-54" positionY="18" width="128" height="90"/>
     </elements>
 </model>

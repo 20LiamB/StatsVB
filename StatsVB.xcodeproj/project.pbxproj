@@ -21,6 +21,7 @@
 		2F1200B72107BB8600057101 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1200B62107BB8600057101 /* CoreDataHelper.swift */; };
 		2F1200C2210A3E2500057101 /* OptionsSceen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F1200C1210A3E2500057101 /* OptionsSceen.storyboard */; };
 		2F1200C6210A3E8000057101 /* OptionsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1200C5210A3E8000057101 /* OptionsScreenViewController.swift */; };
+		2F1200CC210B913800057101 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1200CB210B913800057101 /* Player.swift */; };
 		2F5E18F821064400004B8103 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E18F721064400004B8103 /* AppDelegate.swift */; };
 		2F5E18FD21064400004B8103 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E18FB21064400004B8103 /* Main.storyboard */; };
 		2F5E190021064400004B8103 /* StatsVB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E18FE21064400004B8103 /* StatsVB.xcdatamodeld */; };
@@ -62,6 +63,7 @@
 		2F1200B62107BB8600057101 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		2F1200C1210A3E2500057101 /* OptionsSceen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OptionsSceen.storyboard; sourceTree = "<group>"; };
 		2F1200C5210A3E8000057101 /* OptionsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsScreenViewController.swift; sourceTree = "<group>"; };
+		2F1200CB210B913800057101 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		2F5E18F421064400004B8103 /* StatsVB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatsVB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5E18F721064400004B8103 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F5E18FC21064400004B8103 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,8 +118,8 @@
 		2F12009C2106939300057101 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				2F5E18FB21064400004B8103 /* Main.storyboard */,
 				2F5E190321064402004B8103 /* LaunchScreen.storyboard */,
+				2F5E18FB21064400004B8103 /* Main.storyboard */,
 				2F1200C1210A3E2500057101 /* OptionsSceen.storyboard */,
 			);
 			path = Storyboards;
@@ -136,6 +138,7 @@
 			children = (
 				2F1200A32106956500057101 /* Position.swift */,
 				2F1200A7210696F600057101 /* Positions */,
+				2F1200CB210B913800057101 /* Player.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				2F1200AF2106975C00057101 /* MiddleBlocker.swift in Sources */,
 				2F1200B72107BB8600057101 /* CoreDataHelper.swift in Sources */,
 				2F12009621064E1400057101 /* ListGamesTableViewController.swift in Sources */,
+				2F1200CC210B913800057101 /* Player.swift in Sources */,
 				2F1200A42106956500057101 /* Position.swift in Sources */,
 				2F1200B521078E7300057101 /* DateToStringConversion.swift in Sources */,
 				2F1200A92106973400057101 /* RightSideHitter.swift in Sources */,
