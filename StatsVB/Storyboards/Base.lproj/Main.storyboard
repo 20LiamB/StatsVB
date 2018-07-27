@@ -461,7 +461,6 @@
                         <outlet property="rightSubtractFromScore" destination="i3w-DK-JNq" id="ISX-Hf-CFa"/>
                         <outlet property="scoreTextField" destination="Spp-Ff-7AZ" id="pyy-UQ-hys"/>
                         <outlet property="titleTextField" destination="Pqh-eB-r7C" id="yWT-OX-2kd"/>
-                        <segue destination="pjU-Ur-mNA" kind="show" identifier="segueToOptions" id="wxF-1r-pfn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ff-se-C4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -472,13 +471,13 @@
         <!--PlayerView-->
         <scene sceneID="zFG-QY-db0">
             <objects>
-                <viewController title="PlayerView" id="pjU-Ur-mNA" customClass="OptionsScreenViewController" customModule="StatsVB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="PlayerView" id="pjU-Ur-mNA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rA4-QC-t4c">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3cp-VC-E3r">
-                                <rect key="frame" x="80" y="74" width="864" height="30"/>
+                                <rect key="frame" x="80" y="30" width="864" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
