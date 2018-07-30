@@ -28,6 +28,7 @@
 		2F5E190521064402004B8103 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E190321064402004B8103 /* LaunchScreen.storyboard */; };
 		2F5E191021064402004B8103 /* StatsVBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E190F21064402004B8103 /* StatsVBTests.swift */; };
 		2F5E191B21064402004B8103 /* StatsVBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E191A21064402004B8103 /* StatsVBUITests.swift */; };
+		2FEAC973210F87D3001BC044 /* NewPlayerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEAC972210F87D3001BC044 /* NewPlayerMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		2F5E191621064402004B8103 /* StatsVBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StatsVBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5E191A21064402004B8103 /* StatsVBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsVBUITests.swift; sourceTree = "<group>"; };
 		2F5E191C21064402004B8103 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FEAC972210F87D3001BC044 /* NewPlayerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlayerMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				2F12009521064E1400057101 /* ListGamesTableViewController.swift */,
 				2F120099210684B900057101 /* MainScreenViewController.swift */,
 				2F1200C5210A3E8000057101 /* OptionsScreenViewController.swift */,
+				2FEAC972210F87D3001BC044 /* NewPlayerMenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			files = (
 				2F120098210652BC00057101 /* ListGamesTableViewCell.swift in Sources */,
 				2F1200AF2106975C00057101 /* MiddleBlocker.swift in Sources */,
+				2FEAC973210F87D3001BC044 /* NewPlayerMenuViewController.swift in Sources */,
 				2F1200B72107BB8600057101 /* CoreDataHelper.swift in Sources */,
 				2F12009621064E1400057101 /* ListGamesTableViewController.swift in Sources */,
 				2F1200CC210B913800057101 /* Player.swift in Sources */,

@@ -28,6 +28,9 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var newPlayerButton: UIButton!
     @IBOutlet weak var newPlayerMenu: UIView!
+    @IBOutlet weak var newPlayerName: UITextField!
+    
+    
     
     
     
@@ -107,9 +110,29 @@ class MainScreenViewController: UIViewController {
         }
     }
     @IBAction func newPlayerPressed(_ sender: Any) {
-        hiddenMenuView.isHidden = true
+        menuView.isHidden = true
         newPlayerMenu.isHidden = false
     }
+    
+    
+    
+    @IBAction func savePlayer(_ sender: Any) {
+        
+//        leftPlayer1.setTitle(newPlayerName.text, for: .normal)
+        
+        newPlayerMenu.isHidden = true
+        hiddenMenuView.isHidden = true
+        menuView.isHidden = false
+    }
+    
+    @IBAction func cancelPlayer(_ sender: Any) {
+        newPlayerMenu.isHidden = true
+        hiddenMenuView.isHidden = true
+        menuView.isHidden = false
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
