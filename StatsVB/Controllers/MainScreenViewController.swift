@@ -31,10 +31,6 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var newPlayerName: UITextField!
     
     
-    
-    
-    
-    
     @IBAction func leftAdd(_ sender: Any) {
         leftScore += 1
         updateScore()
@@ -139,6 +135,7 @@ class MainScreenViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(normalTap(_:)))
         tapGesture.numberOfTapsRequired = 1
+        
         leftPlayer1.addGestureRecognizer(tapGesture)
         
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
@@ -150,6 +147,10 @@ class MainScreenViewController: UIViewController {
             leftScore = Int(game.leftScore)
             rightScore = Int(game.rightScore)
         }
+        
+
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

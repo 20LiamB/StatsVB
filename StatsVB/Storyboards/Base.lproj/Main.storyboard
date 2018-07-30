@@ -510,6 +510,13 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrR-OW-f6S" customClass="DropDownButton" customModule="StatsVB" customModuleProvider="target">
+                                                <rect key="frame" x="109" y="161" width="83" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" red="0.1137254902" green="0.32156862749999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -602,6 +609,7 @@
                         <outlet property="menuView" destination="i1K-mb-W96" id="30p-Pu-1Ab"/>
                         <outlet property="newPlayerButton" destination="0RO-bw-tuY" id="nee-fJ-Zjq"/>
                         <outlet property="newPlayerMenu" destination="sVt-Rg-f49" id="kIP-O7-rLv"/>
+                        <outlet property="newPlayerName" destination="H52-FC-LMx" id="o6a-1u-5Uq"/>
                         <outlet property="rightAddToScore" destination="5ao-FO-HnM" id="CSa-Td-uYT"/>
                         <outlet property="rightSubtractFromScore" destination="i3w-DK-JNq" id="ISX-Hf-CFa"/>
                         <outlet property="scoreTextField" destination="Spp-Ff-7AZ" id="pyy-UQ-hys"/>
