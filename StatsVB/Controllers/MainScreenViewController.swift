@@ -15,6 +15,8 @@ class MainScreenViewController: UIViewController {
     var leftScore: Int = 0
     var rightScore: Int = 0
     var game: Game?
+    var selectedPlayer: Player?
+    
     @IBOutlet weak var scoreTextField: UITextView!
     @IBOutlet weak var leftAddToScore: UIButton!
     @IBOutlet weak var leftSubractFromScore: UIButton!
@@ -22,14 +24,19 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var rightSubtractFromScore: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var leftPlayer1: UIButton!
+    @IBOutlet weak var leftPlayer2: UIButton!
+    @IBOutlet weak var leftPlayer3: UIButton!
+    @IBOutlet weak var leftPlayer4: UIButton!
+    @IBOutlet weak var leftPlayer5: UIButton!
+    @IBOutlet weak var leftPlayer6: UIButton!
     var leftPlayerList: [Player?] = [nil, nil, nil, nil, nil, nil]
-    var rightPlayerList: [Player?] = [nil, nil, nil, nil, nil, nil]
     @IBOutlet weak var hiddenMenuView: UIView!
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var newPlayerButton: UIButton!
     @IBOutlet weak var newPlayerMenu: UIView!
     @IBOutlet weak var newPlayerName: UITextField!
     
+    var players: [Player] = [Player(name: "Player", playerNumber: 0), Player(name: "Player", playerNumber: 1), Player(name: "Player", playerNumber: 2), Player(name: "Player", playerNumber: 3), Player(name: "Player", playerNumber: 4), Player(name: "Player", playerNumber: 5) ]
     
     @IBAction func leftAdd(_ sender: Any) {
         leftScore += 1
@@ -53,55 +60,49 @@ class MainScreenViewController: UIViewController {
         updateScore()
     }
     
+    func player1ButtonTapped() {
+        
+        selectedPlayer = players[0]
+        
+        for x in players {
+            x.isOn = false
+        }
+        players[0].isOn = true
+    }
+    
     func updateScore(){
         scoreTextField.text = "\(leftScore) - \(rightScore)"
     }
     
-//    let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
-//
-//    let newPlayerAction = UIAlertAction(title: "New Player", style: .default) { (action:UIAlertAction) in
-//        print("You've pressed New Player");
-//    }
-//    let editPlayerAction = UIAlertAction(title: "Edit Player", style: .default) { (action:UIAlertAction) in
-//        print("You've pressed Edit Player");
-//    }
-//
-//    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
-//        print("You've pressed cancel");
-//    }
-//    func createAlert(){
-//        self.present(alert, animated: true, completion: nil)
-//
-//        alert.addAction(newPlayerAction)
-//        alert.addAction(editPlayerAction)
-//        alert.addAction(cancelAction)
-//    }
-    
-    
-   
-    
-
-    
-    
     //player button functions
-    func newPlayer(){
+    func newPlayer(index: Int, buttonTitle: String){
+        //leftPlayerList[index] = Player(name: "", playerNumber: <#T##Int#>)
         
     }
     
+    func openStatScreen(){
+        
+    }
     
     @objc func normalTap(_ sender: UIGestureRecognizer){
         
         print("Normal tap")
+        var buttonTag = 0
+        
+        if leftPlayerList[buttonTag] != nil {
+            openStatScreen()
+        } else {
+            newPlayer(index: buttonTag, buttonTitle: "placehold")
+        }
     }
     
     @objc func longTap(_ sender: UIGestureRecognizer){
         print("Long tap")
         if sender.state == .ended {
-            print("UIGestureRecognizerStateEnded")
+            print("Ended")
         }
         else if sender.state == .began {
-            print("UIGestureRecognizerStateBegan.")
-//            createAlert()
+            print("Began")
             hiddenMenuView.isHidden = false
         }
     }
@@ -114,7 +115,23 @@ class MainScreenViewController: UIViewController {
     
     @IBAction func savePlayer(_ sender: Any) {
         
-//        leftPlayer1.setTitle(newPlayerName.text, for: .normal)
+        switch selectedPlayer?.playerNumber {
+        case 0 :
+            leftPlayer1.setTitle(newPlayerName.text, for: .normal)
+        case 1 :
+            leftPlayer2.setTitle(newPlayerName.text, for: .normal)
+        case 2 :
+            leftPlayer3.setTitle(newPlayerName.text, for: .normal)
+        case 3 :
+            leftPlayer4.setTitle(newPlayerName.text, for: .normal)
+        case 4 :
+            leftPlayer5.setTitle(newPlayerName.text, for: .normal)
+        case 5 :
+            leftPlayer6.setTitle(newPlayerName.text, for: .normal)
+        default :
+            print("No player selected.")
+        }
+        leftPlayer1.setTitle(newPlayerName.text, for: .normal)
         
         newPlayerMenu.isHidden = true
         hiddenMenuView.isHidden = true
