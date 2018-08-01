@@ -29,13 +29,11 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var leftPlayer4: UIButton!
     @IBOutlet weak var leftPlayer5: UIButton!
     @IBOutlet weak var leftPlayer6: UIButton!
-    var leftPlayerList: [Player?] = [nil, nil, nil, nil, nil, nil]
     @IBOutlet weak var hiddenMenuView: UIView!
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var newPlayerButton: UIButton!
     @IBOutlet weak var newPlayerMenu: UIView!
     @IBOutlet weak var newPlayerName: UITextField!
-    
     var players: [Player] = [Player(name: "Player", playerNumber: 0), Player(name: "Player", playerNumber: 1), Player(name: "Player", playerNumber: 2), Player(name: "Player", playerNumber: 3), Player(name: "Player", playerNumber: 4), Player(name: "Player", playerNumber: 5) ]
     
     @IBAction func leftAdd(_ sender: Any) {
@@ -60,14 +58,112 @@ class MainScreenViewController: UIViewController {
         updateScore()
     }
     
+    func generateArrayOfButtons() -> [UIButton]{
+        let playerButtons: [UIButton] = [leftPlayer1, leftPlayer2, leftPlayer3, leftPlayer4, leftPlayer5, leftPlayer6]
+        return playerButtons
+    }
+    
+    @IBAction func leftPlayer1Tapped(_ sender: Any) {
+        player1ButtonTapped()
+    }
     func player1ButtonTapped() {
-        
+        let playerButtons = generateArrayOfButtons()
+        for b in playerButtons {
+            b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
+        }
         selectedPlayer = players[0]
         
         for x in players {
             x.isOn = false
         }
         players[0].isOn = true
+        leftPlayer1.backgroundColor = UIColor.darkGray
+    }
+    
+    @IBAction func leftPlayer2Tapped(_ sender: Any) {
+        player2ButtonTapped()
+    }
+    func player2ButtonTapped() {
+        let playerButtons = generateArrayOfButtons()
+        for b in playerButtons {
+            b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
+        }
+        selectedPlayer = players[1]
+        
+        for x in players {
+            x.isOn = false
+        }
+        players[1].isOn = true
+        
+        leftPlayer2.backgroundColor = UIColor.darkGray
+    }
+    
+    @IBAction func leftPlayer3Tapped(_ sender: Any) {
+        player3ButtonTapped()
+    }
+    func player3ButtonTapped() {
+        let playerButtons = generateArrayOfButtons()
+        for b in playerButtons {
+            b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
+        }
+        selectedPlayer = players[2]
+        
+        for x in players {
+            x.isOn = false
+        }
+        players[2].isOn = true
+        leftPlayer3.backgroundColor = UIColor.darkGray
+    }
+    
+    @IBAction func leftPlayer4Tapped(_ sender: Any) {
+        player4ButtonTapped()
+    }
+    func player4ButtonTapped() {
+        let playerButtons = generateArrayOfButtons()
+        for b in playerButtons {
+            b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
+        }
+        selectedPlayer = players[3]
+        
+        for x in players {
+            x.isOn = false
+        }
+        players[3].isOn = true
+        leftPlayer4.backgroundColor = UIColor.darkGray
+    }
+    
+    @IBAction func leftPlayer5Tapped(_ sender: Any) {
+        player5ButtonTapped()
+    }
+    func player5ButtonTapped() {
+        let playerButtons = generateArrayOfButtons()
+        for b in playerButtons {
+            b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
+        }
+        selectedPlayer = players[4]
+        
+        for x in players {
+            x.isOn = false
+        }
+        players[4].isOn = true
+        leftPlayer5.backgroundColor = UIColor.darkGray
+    }
+    
+    @IBAction func leftPlayer6Tapped(_ sender: Any) {
+        player6ButtonTapped()
+    }
+    func player6ButtonTapped() {
+        let playerButtons = generateArrayOfButtons()
+        for b in playerButtons {
+            b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
+        }
+        selectedPlayer = players[5]
+        
+        for x in players {
+            x.isOn = false
+        }
+        players[5].isOn = true
+        leftPlayer6.backgroundColor = UIColor.darkGray
     }
     
     func updateScore(){
@@ -76,24 +172,11 @@ class MainScreenViewController: UIViewController {
     
     //player button functions
     func newPlayer(index: Int, buttonTitle: String){
-        //leftPlayerList[index] = Player(name: "", playerNumber: <#T##Int#>)
         
     }
     
     func openStatScreen(){
         
-    }
-    
-    @objc func normalTap(_ sender: UIGestureRecognizer){
-        
-        print("Normal tap")
-        var buttonTag = 0
-        
-        if leftPlayerList[buttonTag] != nil {
-            openStatScreen()
-        } else {
-            newPlayer(index: buttonTag, buttonTitle: "placehold")
-        }
     }
     
     @objc func longTap(_ sender: UIGestureRecognizer){
@@ -149,11 +232,11 @@ class MainScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(normalTap(_:)))
+//        tapGesture.numberOfTapsRequired = 1
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(normalTap(_:)))
-        tapGesture.numberOfTapsRequired = 1
-        
-        leftPlayer1.addGestureRecognizer(tapGesture)
+//        leftPlayer1.addGestureRecognizer(tapGesture)
         
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
         leftPlayer1.addGestureRecognizer(longGesture)
@@ -164,9 +247,6 @@ class MainScreenViewController: UIViewController {
             leftScore = Int(game.leftScore)
             rightScore = Int(game.rightScore)
         }
-        
-
-        
         
     }
     

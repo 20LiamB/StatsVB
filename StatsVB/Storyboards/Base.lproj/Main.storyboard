@@ -109,6 +109,9 @@
                                         <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="leftPlayer1Tapped:" destination="WXK-YX-6aC" eventType="touchUpInside" id="YrN-iT-U7V"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTU-vn-KF6">
                                 <rect key="frame" x="62" y="251" width="150" height="70"/>
@@ -123,6 +126,9 @@
                                         <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="leftPlayer2Tapped:" destination="WXK-YX-6aC" eventType="touchUpInside" id="LPw-pa-Aza"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGP-Rq-jeO">
                                 <rect key="frame" x="62" y="336" width="150" height="70"/>
@@ -140,6 +146,9 @@
                                         <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="leftPlayer3Tapped:" destination="WXK-YX-6aC" eventType="touchUpInside" id="STI-yy-YFu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5C-y1-sGS">
                                 <rect key="frame" x="62" y="430" width="150" height="70"/>
@@ -157,6 +166,9 @@
                                         <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="leftPlayer4Tapped:" destination="WXK-YX-6aC" eventType="touchUpInside" id="gtG-WP-Spq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0t0-Xz-xEy">
                                 <rect key="frame" x="62" y="523" width="150" height="70"/>
@@ -174,6 +186,9 @@
                                         <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="leftPlayer5Tapped:" destination="WXK-YX-6aC" eventType="touchUpInside" id="DY6-pw-pEr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpz-B0-mpL">
                                 <rect key="frame" x="62" y="610" width="150" height="70"/>
@@ -188,6 +203,9 @@
                                         <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="leftPlayer6Tapped:" destination="WXK-YX-6aC" eventType="touchUpInside" id="s7K-Wx-8Up"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="0 - 0" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Spp-Ff-7AZ">
                                 <rect key="frame" x="493" y="100" width="274" height="134"/>
