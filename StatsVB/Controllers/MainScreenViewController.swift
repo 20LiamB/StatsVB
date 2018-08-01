@@ -16,6 +16,12 @@ class MainScreenViewController: UIViewController {
     var rightScore: Int = 0
     var game: Game?
     var selectedPlayer: Player?
+    var kills: Int = 0
+    var kerrors: Int = 0
+    var attempts: Int = 0
+    var aces: Int = 0
+    var serrrors: Int = 0
+    var serves: Int = 0
     
     @IBOutlet weak var scoreTextField: UITextView!
     @IBOutlet weak var leftAddToScore: UIButton!
@@ -34,8 +40,25 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var newPlayerButton: UIButton!
     @IBOutlet weak var newPlayerMenu: UIView!
     @IBOutlet weak var newPlayerName: UITextField!
+    
+    @IBOutlet weak var attemptsStepper: UIStepper!
+    @IBOutlet weak var kerrorsStepper: UIStepper!
+    @IBOutlet weak var killsStepper: UIStepper!
+    @IBOutlet weak var acesStepper: UIStepper!
+    @IBOutlet weak var errorsStepper: UIStepper!
+    @IBOutlet weak var servesStepper: UIStepper!
+    @IBOutlet weak var attemptsField: UITextField!
+    @IBOutlet weak var ferrorsField: UITextField!
+    @IBOutlet weak var killsField: UITextField!
+    @IBOutlet weak var attackingPercentageField: UITextField!
+    
     var players: [Player] = [Player(name: "Player", playerNumber: 0), Player(name: "Player", playerNumber: 1), Player(name: "Player", playerNumber: 2), Player(name: "Player", playerNumber: 3), Player(name: "Player", playerNumber: 4), Player(name: "Player", playerNumber: 5) ]
     
+    @IBAction func attemptsStepperChanged(_ sender: Any) {
+        attempts = Int(attemptsStepper.value)
+        attemptsField.text = "\(attempts)"
+        selectedPlayer?.attempts = attempts
+    }
     @IBAction func leftAdd(_ sender: Any) {
         leftScore += 1
         updateScore()
