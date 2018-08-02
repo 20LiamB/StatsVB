@@ -19,6 +19,7 @@ class MainScreenViewController: UIViewController {
     var aces: Int = 0
     var ferrors: Int = 0
     var serves: Int = 0
+    var isPlayerSelected: Bool = false
     
     @IBOutlet weak var scoreFieldSet1: UITextField!
     @IBOutlet weak var scoreFieldSet2: UITextField!
@@ -34,11 +35,13 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var leftPlayer4: UIButton!
     @IBOutlet weak var leftPlayer5: UIButton!
     @IBOutlet weak var leftPlayer6: UIButton!
+    
     @IBOutlet weak var hiddenMenuView: UIView!
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var newPlayerButton: UIButton!
     @IBOutlet weak var newPlayerMenu: UIView!
     @IBOutlet weak var newPlayerName: UITextField!
+    @IBOutlet weak var cancelButton: UIButton!
     
     @IBOutlet weak var kerrorsStepper: UIStepper!
     @IBOutlet weak var killsStepper: UIStepper!
@@ -64,27 +67,31 @@ class MainScreenViewController: UIViewController {
     }
     
     @IBAction func kerrorsStepperChanged(_ sender: Any) {
-        kerrors = Int(kerrorsStepper.value)
-        kerrorsField.text = "\(kerrors)"
-        selectedPlayer?.kerrors = kerrors
-        attempts = kills + kerrors
-        attemptsField.text = "\(attempts)"
-        selectedPlayer?.attempts = attempts
-//        let attackingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.kills)!, e: (selectedPlayer?.kerrors)!, a: (selectedPlayer?.attempts)!)
-        
-//        attackingPercentageField.text = "\(attackingPercentageField)"
+        if isPlayerSelected == true{
+            kerrors = Int(kerrorsStepper.value)
+            kerrorsField.text = "\(kerrors)"
+            selectedPlayer?.kerrors = kerrors
+            attempts = kills + kerrors
+            attemptsField.text = "\(attempts)"
+            selectedPlayer?.attempts = attempts
+            let attackingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.kills)!, e: (selectedPlayer?.kerrors)!, a: (selectedPlayer?.attempts)!)
+            
+            attackingPercentageField.text = "\(attackingPercentageField)"
+        }
     }
     
     @IBAction func killsStepperChanged(_ sender: Any) {
-        kills = Int(killsStepper.value)
-        killsField.text = "\(kills)"
-        selectedPlayer?.kills = kills
-        attempts = kills + kerrors
-        attemptsField.text = "\(attempts)"
-        selectedPlayer?.attempts = attempts
-        
-        //        let attackingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.kills)!, e: (selectedPlayer?.kerrors)!, a: (selectedPlayer?.attempts)!)
-        //        attackingPercentageField.text = "\(attackingPercentageField)"
+        if isPlayerSelected == true {
+            kills = Int(killsStepper.value)
+            killsField.text = "\(kills)"
+            selectedPlayer?.kills = kills
+            attempts = kills + kerrors
+            attemptsField.text = "\(attempts)"
+            selectedPlayer?.attempts = attempts
+            
+            let attackingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.kills)!, e: (selectedPlayer?.kerrors)!, a: (selectedPlayer?.attempts)!)
+            attackingPercentageField.text = "\(attackingPercentageField)"
+        }
     }
     
     @IBAction func acesStepperChanged(_ sender: Any) {
@@ -126,6 +133,8 @@ class MainScreenViewController: UIViewController {
         }
         players[0].isOn = true
         leftPlayer1.backgroundColor = UIColor.darkGray
+        
+        isPlayerSelected = true
     }
     
     @IBAction func leftPlayer2Tapped(_ sender: Any) {
@@ -144,6 +153,8 @@ class MainScreenViewController: UIViewController {
         players[1].isOn = true
         
         leftPlayer2.backgroundColor = UIColor.darkGray
+        
+        isPlayerSelected = true
     }
     
     @IBAction func leftPlayer3Tapped(_ sender: Any) {
@@ -161,6 +172,8 @@ class MainScreenViewController: UIViewController {
         }
         players[2].isOn = true
         leftPlayer3.backgroundColor = UIColor.darkGray
+        
+        isPlayerSelected = true
     }
     
     @IBAction func leftPlayer4Tapped(_ sender: Any) {
@@ -178,6 +191,8 @@ class MainScreenViewController: UIViewController {
         }
         players[3].isOn = true
         leftPlayer4.backgroundColor = UIColor.darkGray
+        
+        isPlayerSelected = true
     }
     
     @IBAction func leftPlayer5Tapped(_ sender: Any) {
@@ -195,6 +210,8 @@ class MainScreenViewController: UIViewController {
         }
         players[4].isOn = true
         leftPlayer5.backgroundColor = UIColor.darkGray
+        
+        isPlayerSelected = true
     }
     
     @IBAction func leftPlayer6Tapped(_ sender: Any) {
@@ -212,16 +229,12 @@ class MainScreenViewController: UIViewController {
         }
         players[5].isOn = true
         leftPlayer6.backgroundColor = UIColor.darkGray
+        
+        isPlayerSelected = true
+        
     }
     
     //player button functions
-    func newPlayer(index: Int, buttonTitle: String){
-        
-    }
-    
-    func openStatScreen(){
-        
-    }
     
     @objc func longTap(_ sender: UIGestureRecognizer){
         print("Long tap")
@@ -233,9 +246,15 @@ class MainScreenViewController: UIViewController {
             hiddenMenuView.isHidden = false
         }
     }
+    
     @IBAction func newPlayerPressed(_ sender: Any) {
         menuView.isHidden = true
         newPlayerMenu.isHidden = false
+    }
+    
+    @IBAction func cancelPressed(_ sender: Any) {
+        menuView.isHidden = false
+        hiddenMenuView.isHidden = true
     }
     
     
@@ -276,18 +295,33 @@ class MainScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(normalTap(_:)))
-//        tapGesture.numberOfTapsRequired = 1
         
-//        leftPlayer1.addGestureRecognizer(tapGesture)
         
-        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
-        leftPlayer1.addGestureRecognizer(longGesture)
+        self.view.bringSubview(toFront: self.hiddenMenuView)
+        var pNumber = 0
+        for p in players {
+            p.playerNumber = pNumber
+            pNumber += 1
+        }
+        
+        let longGesture1 = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+        let longGesture2 = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+        let longGesture3 = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+        let longGesture4 = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+        let longGesture5 = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+        let longGesture6 = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+        leftPlayer1.addGestureRecognizer(longGesture1)
+        leftPlayer2.addGestureRecognizer(longGesture2)
+        leftPlayer3.addGestureRecognizer(longGesture3)
+        leftPlayer4.addGestureRecognizer(longGesture4)
+        leftPlayer5.addGestureRecognizer(longGesture5)
+        leftPlayer6.addGestureRecognizer(longGesture6)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        isPlayerSelected = false
         
         if let game = game {
             titleTextField.text = game.title
