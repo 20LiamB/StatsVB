@@ -11,23 +11,22 @@ import UIKit
 
 class MainScreenViewController: UIViewController {
     
-    //scoreboard
-    var leftScore: Int = 0
-    var rightScore: Int = 0
     var game: Game?
     var selectedPlayer: Player?
     var kills: Int = 0
     var kerrors: Int = 0
     var attempts: Int = 0
     var aces: Int = 0
-    var serrrors: Int = 0
+    var ferrors: Int = 0
     var serves: Int = 0
     
-    @IBOutlet weak var scoreTextField: UITextView!
-    @IBOutlet weak var leftAddToScore: UIButton!
-    @IBOutlet weak var leftSubractFromScore: UIButton!
-    @IBOutlet weak var rightAddToScore: UIButton!
-    @IBOutlet weak var rightSubtractFromScore: UIButton!
+    @IBOutlet weak var scoreFieldSet1: UITextField!
+    @IBOutlet weak var scoreFieldSet2: UITextField!
+    @IBOutlet weak var scoreFieldSet3: UITextField!
+    @IBOutlet weak var scoreFieldSet4: UITextField!
+    @IBOutlet weak var scoreFieldSet5: UITextField!
+    
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var leftPlayer1: UIButton!
     @IBOutlet weak var leftPlayer2: UIButton!
@@ -41,44 +40,69 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var newPlayerMenu: UIView!
     @IBOutlet weak var newPlayerName: UITextField!
     
-    @IBOutlet weak var attemptsStepper: UIStepper!
     @IBOutlet weak var kerrorsStepper: UIStepper!
     @IBOutlet weak var killsStepper: UIStepper!
     @IBOutlet weak var acesStepper: UIStepper!
-    @IBOutlet weak var errorsStepper: UIStepper!
-    @IBOutlet weak var servesStepper: UIStepper!
+    @IBOutlet weak var ferrorsStepper: UIStepper!
     @IBOutlet weak var attemptsField: UITextField!
+    @IBOutlet weak var kerrorsField: UITextField!
     @IBOutlet weak var ferrorsField: UITextField!
     @IBOutlet weak var killsField: UITextField!
     @IBOutlet weak var attackingPercentageField: UITextField!
+    @IBOutlet weak var acesField: UITextField!
+    @IBOutlet weak var servesField: UITextField!
     
     var players: [Player] = [Player(name: "Player", playerNumber: 0), Player(name: "Player", playerNumber: 1), Player(name: "Player", playerNumber: 2), Player(name: "Player", playerNumber: 3), Player(name: "Player", playerNumber: 4), Player(name: "Player", playerNumber: 5) ]
     
-    @IBAction func attemptsStepperChanged(_ sender: Any) {
-        attempts = Int(attemptsStepper.value)
+    func calculateAttackingPercentage(k: Int, e: Int, a: Int) -> Double{
+        if a > 0 {
+            let percentage = Double(1000*(k-e)/a)
+            return percentage
+        } else {
+            return 0
+        }
+    }
+    
+    @IBAction func kerrorsStepperChanged(_ sender: Any) {
+        kerrors = Int(kerrorsStepper.value)
+        kerrorsField.text = "\(kerrors)"
+        selectedPlayer?.kerrors = kerrors
+        attempts = kills + kerrors
         attemptsField.text = "\(attempts)"
         selectedPlayer?.attempts = attempts
+//        let attackingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.kills)!, e: (selectedPlayer?.kerrors)!, a: (selectedPlayer?.attempts)!)
+        
+//        attackingPercentageField.text = "\(attackingPercentageField)"
     }
-    @IBAction func leftAdd(_ sender: Any) {
-        leftScore += 1
-        updateScore()
+    
+    @IBAction func killsStepperChanged(_ sender: Any) {
+        kills = Int(killsStepper.value)
+        killsField.text = "\(kills)"
+        selectedPlayer?.kills = kills
+        attempts = kills + kerrors
+        attemptsField.text = "\(attempts)"
+        selectedPlayer?.attempts = attempts
+        
+        //        let attackingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.kills)!, e: (selectedPlayer?.kerrors)!, a: (selectedPlayer?.attempts)!)
+        //        attackingPercentageField.text = "\(attackingPercentageField)"
     }
-    @IBAction func leftSubtract(_ sender: Any) {
-        if leftScore > 0 {
-            leftScore -= 1
-        }
-        updateScore()
+    
+    @IBAction func acesStepperChanged(_ sender: Any) {
+        aces = Int(acesStepper.value)
+        acesField.text = "\(aces)"
+        selectedPlayer?.aces = aces
+        serves = aces + ferrors
+        servesField.text = "\(serves)"
+        selectedPlayer?.serves = serves
     }
-    @IBAction func rightAdd(_ sender: Any) {
-        rightScore += 1
-        updateScore()
-    }
-    @IBAction func rightSubtract(_ sender: Any) {
-        if rightScore > 0 {
-            rightScore -= 1
-            
-        }
-        updateScore()
+    
+    @IBAction func ferrorsStepperChanged(_ sender: Any) {
+        ferrors = Int(ferrorsStepper.value)
+        ferrorsField.text = "\(ferrors)"
+        selectedPlayer?.ferrors = ferrors
+        serves = aces + ferrors
+        servesField.text = "\(serves)"
+        selectedPlayer?.serves = serves
     }
     
     func generateArrayOfButtons() -> [UIButton]{
@@ -95,6 +119,7 @@ class MainScreenViewController: UIViewController {
             b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
         }
         selectedPlayer = players[0]
+        print(selectedPlayer?.kills)
         
         for x in players {
             x.isOn = false
@@ -189,10 +214,6 @@ class MainScreenViewController: UIViewController {
         leftPlayer6.backgroundColor = UIColor.darkGray
     }
     
-    func updateScore(){
-        scoreTextField.text = "\(leftScore) - \(rightScore)"
-    }
-    
     //player button functions
     func newPlayer(index: Int, buttonTitle: String){
         
@@ -263,14 +284,6 @@ class MainScreenViewController: UIViewController {
         
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
         leftPlayer1.addGestureRecognizer(longGesture)
-        
-        var savedLeftScore = game?.leftScore
-        
-        if let game = game {
-            leftScore = Int(game.leftScore)
-            rightScore = Int(game.rightScore)
-        }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -278,10 +291,18 @@ class MainScreenViewController: UIViewController {
         
         if let game = game {
             titleTextField.text = game.title
-            scoreTextField.text = game.score
+            scoreFieldSet1.text = game.score1
+            scoreFieldSet2.text = game.score2
+            scoreFieldSet3.text = game.score3
+            scoreFieldSet4.text = game.score4
+            scoreFieldSet5.text = game.score5
         }else{
             titleTextField.text = ""
-            scoreTextField.text = "" //I changed this
+            scoreFieldSet1.text = "0 - 0"
+            scoreFieldSet2.text = "0 - 0"
+            scoreFieldSet3.text = "0 - 0"
+            scoreFieldSet4.text = "0 - 0"
+            scoreFieldSet5.text = "0 - 0"
         }
     }
     
@@ -291,9 +312,11 @@ class MainScreenViewController: UIViewController {
         switch identifier {
         case "save" where game != nil:
             game?.title = titleTextField.text ?? ""
-            game?.score = scoreTextField.text ?? ""
-            game?.leftScore = Int32(leftScore)
-            game?.rightScore = Int32(rightScore)
+            game?.score1 = scoreFieldSet1.text ?? ""
+            game?.score2 = scoreFieldSet2.text ?? ""
+            game?.score3 = scoreFieldSet3.text ?? ""
+            game?.score4 = scoreFieldSet4.text ?? ""
+            game?.score5 = scoreFieldSet5.text ?? ""
             game?.date = Date()
             
             CoreDataHelper.saveGame()
@@ -301,9 +324,11 @@ class MainScreenViewController: UIViewController {
         case "save" where game == nil:
             let game = CoreDataHelper.newGame()
             game.title = titleTextField.text ?? ""
-            game.score = scoreTextField.text ?? ""
-            game.leftScore = Int32(Int16(leftScore))
-            game.rightScore = Int32(Int16(rightScore))
+            game.score1 = scoreFieldSet1.text ?? ""
+            game.score2 = scoreFieldSet2.text ?? ""
+            game.score3 = scoreFieldSet3.text ?? ""
+            game.score4 = scoreFieldSet4.text ?? ""
+            game.score5 = scoreFieldSet5.text ?? ""
             game.date = Date()
             
             CoreDataHelper.saveGame()

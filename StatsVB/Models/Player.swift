@@ -13,9 +13,12 @@ class Player{
     var position = Position()
     var kills = 0
     var attempts = 0
-    var errors = 0
+    var kerrors = 0
     var playerNumber: Int
     var isOn: Bool = false
+    var aces = 0
+    var ferrors = 0
+    var serves = 0
     
     init(name: String, playerNumber: Int){
         self.name = name
