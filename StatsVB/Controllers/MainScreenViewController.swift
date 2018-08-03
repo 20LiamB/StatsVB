@@ -334,13 +334,29 @@ class MainScreenViewController: UIViewController {
             scoreFieldSet3.text = game.score3
             scoreFieldSet4.text = game.score4
             scoreFieldSet5.text = game.score5
+            
+            leftPlayer1.setTitle(game.leftPlayer1Name, for: .normal)
+            leftPlayer2.setTitle(game.leftPlayer2Name, for: .normal)
+            leftPlayer3.setTitle(game.leftPlayer3Name, for: .normal)
+            leftPlayer4.setTitle(game.leftPlayer4Name, for: .normal)
+            leftPlayer5.setTitle(game.leftPlayer5Name, for: .normal)
+            leftPlayer6.setTitle(game.leftPlayer6Name, for: .normal)
+            
         }else{
             titleTextField.text = ""
+            
             scoreFieldSet1.text = "0 - 0"
             scoreFieldSet2.text = "0 - 0"
             scoreFieldSet3.text = "0 - 0"
             scoreFieldSet4.text = "0 - 0"
             scoreFieldSet5.text = "0 - 0"
+            
+            leftPlayer1.setTitle("Player", for: .normal)
+            leftPlayer2.setTitle("Player", for: .normal)
+            leftPlayer3.setTitle("Player", for: .normal)
+            leftPlayer4.setTitle("Player", for: .normal)
+            leftPlayer5.setTitle("Player", for: .normal)
+            leftPlayer6.setTitle("Player", for: .normal)
         }
     }
     
@@ -350,6 +366,14 @@ class MainScreenViewController: UIViewController {
         switch identifier {
         case "save" where game != nil:
             game?.title = titleTextField.text ?? ""
+            
+            game?.leftPlayer1Name = leftPlayer1.titleLabel?.text ?? ""
+            game?.leftPlayer2Name = leftPlayer2.titleLabel?.text ?? ""
+            game?.leftPlayer3Name = leftPlayer3.titleLabel?.text ?? ""
+            game?.leftPlayer4Name = leftPlayer4.titleLabel?.text ?? ""
+            game?.leftPlayer5Name = leftPlayer5.titleLabel?.text ?? ""
+            game?.leftPlayer6Name = leftPlayer6.titleLabel?.text ?? ""
+            
             game?.score1 = scoreFieldSet1.text ?? ""
             game?.score2 = scoreFieldSet2.text ?? ""
             game?.score3 = scoreFieldSet3.text ?? ""
@@ -362,6 +386,14 @@ class MainScreenViewController: UIViewController {
         case "save" where game == nil:
             let game = CoreDataHelper.newGame()
             game.title = titleTextField.text ?? ""
+            
+            game.leftPlayer1Name = leftPlayer1.titleLabel?.text ?? ""
+            game.leftPlayer2Name = leftPlayer2.titleLabel?.text ?? ""
+            game.leftPlayer3Name = leftPlayer3.titleLabel?.text ?? ""
+            game.leftPlayer4Name = leftPlayer4.titleLabel?.text ?? ""
+            game.leftPlayer5Name = leftPlayer5.titleLabel?.text ?? ""
+            game.leftPlayer6Name = leftPlayer6.titleLabel?.text ?? ""
+            
             game.score1 = scoreFieldSet1.text ?? ""
             game.score2 = scoreFieldSet2.text ?? ""
             game.score3 = scoreFieldSet3.text ?? ""
