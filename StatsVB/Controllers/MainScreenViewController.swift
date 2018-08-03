@@ -68,13 +68,16 @@ class MainScreenViewController: UIViewController {
     
     @IBAction func kerrorsStepperChanged(_ sender: Any) {
         if isPlayerSelected == true{
-            kerrors = Int(kerrorsStepper.value)
-            kerrorsField.text = "\(kerrors)"
-            selectedPlayer?.kerrors = kerrors
-            attempts = kills + kerrors
-            attemptsField.text = "\(attempts)"
-            selectedPlayer?.attempts = attempts
-            let attackingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.kills)!, e: (selectedPlayer?.kerrors)!, a: (selectedPlayer?.attempts)!)
+            var e = selectedPlayer?.kerrors
+            var k = selectedPlayer?.kills
+            var a = selectedPlayer?.attempts
+            e = Int(kerrorsStepper.value)
+            kerrorsField.text = "\(e)"
+//            selectedPlayer?.kerrors = kerrors
+            a = kills + kerrors
+            attemptsField.text = "\(a)"
+            a = attempts
+            let attackingPercentage = calculateAttackingPercentage(k: (k)!, e: (e)!, a: (a)!)
             
             attackingPercentageField.text = "\(attackingPercentageField)"
         }
@@ -243,6 +246,7 @@ class MainScreenViewController: UIViewController {
         }
         else if sender.state == .began {
             print("Began")
+            
             hiddenMenuView.isHidden = false
         }
     }
