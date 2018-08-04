@@ -19,6 +19,8 @@ class Player{
     var aces = 0
     var ferrors = 0
     var serves = 0
+    var attackingPercentage = 0.0
+    var servingPercentage = 0.0
     
     init(name: String, playerNumber: Int){
         self.name = name

@@ -54,6 +54,7 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var attackingPercentageField: UITextField!
     @IBOutlet weak var acesField: UITextField!
     @IBOutlet weak var servesField: UITextField!
+    @IBOutlet weak var servingPercentageField: UITextField!
     
     var players: [Player] = [Player(name: "Player", playerNumber: 0), Player(name: "Player", playerNumber: 1), Player(name: "Player", playerNumber: 2), Player(name: "Player", playerNumber: 3), Player(name: "Player", playerNumber: 4), Player(name: "Player", playerNumber: 5) ]
     
@@ -67,52 +68,57 @@ class MainScreenViewController: UIViewController {
     }
     
     @IBAction func kerrorsStepperChanged(_ sender: Any) {
+        
         if isPlayerSelected == true{
-            var e = selectedPlayer?.kerrors
-            var k = selectedPlayer?.kills
-            var a = selectedPlayer?.attempts
-            e = Int(kerrorsStepper.value)
-            kerrorsField.text = "\(e)"
-//            selectedPlayer?.kerrors = kerrors
-            a = kills + kerrors
-            attemptsField.text = "\(a)"
-            a = attempts
-            let attackingPercentage = calculateAttackingPercentage(k: (k)!, e: (e)!, a: (a)!)
-            
-            attackingPercentageField.text = "\(attackingPercentageField)"
+            selectedPlayer?.kerrors = Int(kerrorsStepper.value)
+            selectedPlayer?.attempts = Int(killsStepper.value + kerrorsStepper.value)
+            selectedPlayer?.attackingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.kills)!, e: (selectedPlayer?.kerrors)!, a: (selectedPlayer?.attempts)!)
+            attackingPercentageField.text = "\(selectedPlayer?.attackingPercentage  ?? 0)"
+        } else {
+            kerrorsStepper.value = 0
         }
+        kerrorsField.text = Int(kerrorsStepper.value).description
+        attemptsField.text = Int(kerrorsStepper.value + killsStepper.value).description
     }
     
     @IBAction func killsStepperChanged(_ sender: Any) {
+
         if isPlayerSelected == true {
-            kills = Int(killsStepper.value)
-            killsField.text = "\(kills)"
-            selectedPlayer?.kills = kills
-            attempts = kills + kerrors
-            attemptsField.text = "\(attempts)"
-            selectedPlayer?.attempts = attempts
-            
-            let attackingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.kills)!, e: (selectedPlayer?.kerrors)!, a: (selectedPlayer?.attempts)!)
-            attackingPercentageField.text = "\(attackingPercentageField)"
+            selectedPlayer?.kills = Int(killsStepper.value)
+            selectedPlayer?.attempts = Int(killsStepper.value + kerrorsStepper.value)
+            selectedPlayer?.attackingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.kills)!, e: (selectedPlayer?.kerrors)!, a: (selectedPlayer?.attempts)!)
+            attackingPercentageField.text = "\(selectedPlayer?.attackingPercentage  ?? 0)"
+        } else {
+            killsStepper.value = 0
         }
+        attemptsField.text = Int(kerrorsStepper.value + killsStepper.value).description
+        killsField.text = Int(killsStepper.value).description
     }
     
     @IBAction func acesStepperChanged(_ sender: Any) {
-        aces = Int(acesStepper.value)
-        acesField.text = "\(aces)"
-        selectedPlayer?.aces = aces
-        serves = aces + ferrors
-        servesField.text = "\(serves)"
-        selectedPlayer?.serves = serves
+        if isPlayerSelected == true {
+            selectedPlayer?.aces = Int(acesStepper.value)
+            selectedPlayer?.serves = Int(acesStepper.value + ferrorsStepper.value)
+            selectedPlayer?.servingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.aces)!, e: (selectedPlayer?.ferrors)!, a: (selectedPlayer?.serves)!)
+            servingPercentageField.text = "\(selectedPlayer?.servingPercentage  ?? 0)"
+        } else {
+            acesStepper.value = 0
+        }
+        servesField.text = Int(ferrorsStepper.value + acesStepper.value).description
+        acesField.text = Int(acesStepper.value).description
     }
     
     @IBAction func ferrorsStepperChanged(_ sender: Any) {
-        ferrors = Int(ferrorsStepper.value)
-        ferrorsField.text = "\(ferrors)"
-        selectedPlayer?.ferrors = ferrors
-        serves = aces + ferrors
-        servesField.text = "\(serves)"
-        selectedPlayer?.serves = serves
+        if isPlayerSelected == true {
+            selectedPlayer?.ferrors = Int(ferrorsStepper.value)
+            selectedPlayer?.serves = Int(acesStepper.value + ferrorsStepper.value)
+            selectedPlayer?.servingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.aces)!, e: (selectedPlayer?.ferrors)!, a: (selectedPlayer?.serves)!)
+            servingPercentageField.text = "\(selectedPlayer?.servingPercentage  ?? 0)"
+        } else {
+            ferrorsStepper.value = 0
+        }
+        servesField.text = Int(ferrorsStepper.value + acesStepper.value).description
+        ferrorsField.text = Int(ferrorsStepper.value).description
     }
     
     func generateArrayOfButtons() -> [UIButton]{
@@ -124,6 +130,10 @@ class MainScreenViewController: UIViewController {
         player1ButtonTapped()
     }
     func player1ButtonTapped() {
+        kerrorsStepper.value = Double(players[0].kerrors)
+        kerrorsField.text = Int(kerrorsStepper.value).description
+        killsStepper.value = Double(players[0].kills)
+        killsField.text = Int(killsStepper.value).description
         let playerButtons = generateArrayOfButtons()
         for b in playerButtons {
             b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
@@ -144,6 +154,10 @@ class MainScreenViewController: UIViewController {
         player2ButtonTapped()
     }
     func player2ButtonTapped() {
+        kerrorsStepper.value = Double(players[1].kerrors)
+        kerrorsField.text = Int(kerrorsStepper.value).description
+        killsStepper.value = Double(players[1].kills)
+        killsField.text = Int(killsStepper.value).description
         let playerButtons = generateArrayOfButtons()
         for b in playerButtons {
             b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
@@ -164,6 +178,10 @@ class MainScreenViewController: UIViewController {
         player3ButtonTapped()
     }
     func player3ButtonTapped() {
+        kerrorsStepper.value = Double(players[2].kerrors)
+        kerrorsField.text = Int(kerrorsStepper.value).description
+        killsStepper.value = Double(players[2].kills)
+        killsField.text = Int(killsStepper.value).description
         let playerButtons = generateArrayOfButtons()
         for b in playerButtons {
             b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
@@ -183,6 +201,10 @@ class MainScreenViewController: UIViewController {
         player4ButtonTapped()
     }
     func player4ButtonTapped() {
+        kerrorsStepper.value = Double(players[3].kerrors)
+        kerrorsField.text = Int(kerrorsStepper.value).description
+        killsStepper.value = Double(players[3].kills)
+        killsField.text = Int(killsStepper.value).description
         let playerButtons = generateArrayOfButtons()
         for b in playerButtons {
             b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
@@ -202,6 +224,11 @@ class MainScreenViewController: UIViewController {
         player5ButtonTapped()
     }
     func player5ButtonTapped() {
+        kerrorsStepper.value = Double(players[4].kerrors)
+        kerrorsField.text = Int(kerrorsStepper.value).description
+        killsStepper.value = Double(players[4].kills)
+        killsField.text = Int(killsStepper.value).description
+        
         let playerButtons = generateArrayOfButtons()
         for b in playerButtons {
             b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
@@ -221,6 +248,10 @@ class MainScreenViewController: UIViewController {
         player6ButtonTapped()
     }
     func player6ButtonTapped() {
+        kerrorsStepper.value = Double(players[5].kerrors)
+        kerrorsField.text = Int(kerrorsStepper.value).description
+        killsStepper.value = Double(players[5].kills)
+        killsField.text = Int(killsStepper.value).description
         let playerButtons = generateArrayOfButtons()
         for b in playerButtons {
             b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
@@ -334,8 +365,11 @@ class MainScreenViewController: UIViewController {
             scoreFieldSet3.text = game.score3
             scoreFieldSet4.text = game.score4
             scoreFieldSet5.text = game.score5
+
+            if game.leftPlayer1Name == "" {
+                leftPlayer1.setTitle(game.leftPlayer1Name, for: .normal)
+            }
             
-            leftPlayer1.setTitle(game.leftPlayer1Name, for: .normal)
             leftPlayer2.setTitle(game.leftPlayer2Name, for: .normal)
             leftPlayer3.setTitle(game.leftPlayer3Name, for: .normal)
             leftPlayer4.setTitle(game.leftPlayer4Name, for: .normal)
