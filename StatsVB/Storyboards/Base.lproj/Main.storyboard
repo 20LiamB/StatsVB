@@ -371,6 +371,71 @@
                             <view hidden="YES" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Msg-6D-4tI" userLabel="hiddenBackgroundView">
                                 <rect key="frame" x="0.0" y="0.0" width="1090" height="768"/>
                                 <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVt-Rg-f49">
+                                        <rect key="frame" x="380" y="242" width="330" height="284"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H52-FC-LMx">
+                                                <rect key="frame" x="28" y="29" width="228" height="30"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7j5-3R-HeH">
+                                                <rect key="frame" x="37" y="222" width="210" height="30"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="zAp-mf-8hp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" red="0.1137254902" green="0.32156862749999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.makesToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cancelPlayer:" destination="WXK-YX-6aC" eventType="touchUpInside" id="211-51-ziL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkO-M7-d17">
+                                                <rect key="frame" x="37" y="135" width="210" height="30"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="slI-4n-CdC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="Save">
+                                                    <color key="titleColor" red="0.1137254902" green="0.32156862749999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.makesToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="savePlayer:" destination="WXK-YX-6aC" eventType="touchUpInside" id="POD-mr-4ai"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="7j5-3R-HeH" firstAttribute="leading" secondItem="sVt-Rg-f49" secondAttribute="leading" constant="37" id="E7Y-ac-0I6"/>
+                                            <constraint firstItem="H52-FC-LMx" firstAttribute="centerX" secondItem="XkO-M7-d17" secondAttribute="centerX" id="G1C-6K-6I3"/>
+                                            <constraint firstItem="H52-FC-LMx" firstAttribute="top" secondItem="sVt-Rg-f49" secondAttribute="top" constant="29" id="HlS-wU-1xS"/>
+                                            <constraint firstItem="XkO-M7-d17" firstAttribute="top" secondItem="H52-FC-LMx" secondAttribute="bottom" constant="76" id="KsH-qE-GjU"/>
+                                            <constraint firstItem="7j5-3R-HeH" firstAttribute="leading" secondItem="XkO-M7-d17" secondAttribute="leading" id="Qnq-uO-Def"/>
+                                            <constraint firstItem="7j5-3R-HeH" firstAttribute="top" secondItem="XkO-M7-d17" secondAttribute="bottom" constant="57" id="dGE-xi-GoG"/>
+                                            <constraint firstAttribute="bottom" secondItem="7j5-3R-HeH" secondAttribute="bottom" constant="32" id="ld1-lp-E6d"/>
+                                            <constraint firstAttribute="trailing" secondItem="H52-FC-LMx" secondAttribute="trailing" constant="74" id="mDW-KX-EAE"/>
+                                            <constraint firstItem="H52-FC-LMx" firstAttribute="leading" secondItem="sVt-Rg-f49" secondAttribute="leading" constant="28" id="paZ-Z5-EYT"/>
+                                            <constraint firstItem="H52-FC-LMx" firstAttribute="centerX" secondItem="7j5-3R-HeH" secondAttribute="centerX" id="wYL-hV-M4y"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1K-mb-W96" userLabel="menuView">
                                         <rect key="frame" x="362" y="234" width="351" height="350"/>
                                         <subviews>
@@ -421,69 +486,16 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVt-Rg-f49">
-                                                <rect key="frame" x="11" y="66" width="329" height="229"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H52-FC-LMx">
-                                                        <rect key="frame" x="28" y="29" width="227" height="30"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7j5-3R-HeH">
-                                                        <rect key="frame" x="37" y="222" width="209" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="zAp-mf-8hp"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" title="Cancel">
-                                                            <color key="titleColor" red="0.1137254902" green="0.32156862749999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="cancelPlayer:" destination="WXK-YX-6aC" eventType="touchUpInside" id="211-51-ziL"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkO-M7-d17">
-                                                        <rect key="frame" x="37" y="135" width="209" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="slI-4n-CdC"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" title="Save">
-                                                            <color key="titleColor" red="0.1137254902" green="0.32156862749999998" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="savePlayer:" destination="WXK-YX-6aC" eventType="touchUpInside" id="POD-mr-4ai"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="7j5-3R-HeH" firstAttribute="leading" secondItem="sVt-Rg-f49" secondAttribute="leading" constant="37" id="E7Y-ac-0I6"/>
-                                                    <constraint firstItem="H52-FC-LMx" firstAttribute="centerX" secondItem="XkO-M7-d17" secondAttribute="centerX" id="G1C-6K-6I3"/>
-                                                    <constraint firstItem="H52-FC-LMx" firstAttribute="top" secondItem="sVt-Rg-f49" secondAttribute="top" constant="29" id="HlS-wU-1xS"/>
-                                                    <constraint firstItem="XkO-M7-d17" firstAttribute="top" secondItem="H52-FC-LMx" secondAttribute="bottom" constant="76" id="KsH-qE-GjU"/>
-                                                    <constraint firstItem="7j5-3R-HeH" firstAttribute="leading" secondItem="XkO-M7-d17" secondAttribute="leading" id="Qnq-uO-Def"/>
-                                                    <constraint firstItem="7j5-3R-HeH" firstAttribute="top" secondItem="XkO-M7-d17" secondAttribute="bottom" constant="57" id="dGE-xi-GoG"/>
-                                                    <constraint firstAttribute="bottom" secondItem="7j5-3R-HeH" secondAttribute="bottom" constant="-23" id="ld1-lp-E6d"/>
-                                                    <constraint firstAttribute="trailing" secondItem="H52-FC-LMx" secondAttribute="trailing" constant="74" id="mDW-KX-EAE"/>
-                                                    <constraint firstItem="H52-FC-LMx" firstAttribute="leading" secondItem="sVt-Rg-f49" secondAttribute="leading" constant="28" id="paZ-Z5-EYT"/>
-                                                    <constraint firstItem="H52-FC-LMx" firstAttribute="centerX" secondItem="7j5-3R-HeH" secondAttribute="centerX" id="wYL-hV-M4y"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="sVt-Rg-f49" firstAttribute="leading" secondItem="i1K-mb-W96" secondAttribute="leading" constant="11" id="2Xm-cq-7iY"/>
-                                            <constraint firstAttribute="bottom" secondItem="sVt-Rg-f49" secondAttribute="bottom" constant="55" id="73f-5Q-sZw"/>
-                                            <constraint firstItem="sVt-Rg-f49" firstAttribute="centerX" secondItem="RMX-ml-YcS" secondAttribute="centerX" id="Fll-d2-MBb"/>
+                                            <constraint firstItem="wh4-op-odF" firstAttribute="top" secondItem="i1K-mb-W96" secondAttribute="top" constant="113" id="1we-o3-jqS"/>
                                             <constraint firstItem="RMX-ml-YcS" firstAttribute="leading" secondItem="i1K-mb-W96" secondAttribute="leading" constant="46" id="Ior-cQ-LyP"/>
                                             <constraint firstItem="wh4-op-odF" firstAttribute="leading" secondItem="i1K-mb-W96" secondAttribute="leading" constant="20" id="M6D-Vb-tcd"/>
                                             <constraint firstAttribute="bottom" secondItem="RMX-ml-YcS" secondAttribute="bottom" constant="69" id="QW3-fA-rzY"/>
                                             <constraint firstItem="RMX-ml-YcS" firstAttribute="top" secondItem="0RO-bw-tuY" secondAttribute="bottom" constant="25" id="RJZ-Ob-Yl1"/>
                                             <constraint firstAttribute="trailing" secondItem="RMX-ml-YcS" secondAttribute="trailing" constant="46" id="Sqc-dE-vSS"/>
                                             <constraint firstItem="RMX-ml-YcS" firstAttribute="height" secondItem="0RO-bw-tuY" secondAttribute="height" id="W5F-qy-Y7q"/>
-                                            <constraint firstItem="sVt-Rg-f49" firstAttribute="top" secondItem="i1K-mb-W96" secondAttribute="top" constant="66" id="Xs7-d9-FFj"/>
                                             <constraint firstItem="0RO-bw-tuY" firstAttribute="top" secondItem="wh4-op-odF" secondAttribute="bottom" constant="19" id="ZW6-Uh-wz5"/>
                                             <constraint firstItem="0RO-bw-tuY" firstAttribute="leading" secondItem="i1K-mb-W96" secondAttribute="leading" constant="46" id="n91-oQ-2Jn"/>
                                             <constraint firstAttribute="trailing" secondItem="wh4-op-odF" secondAttribute="trailing" constant="20" id="tvk-zE-muo"/>
@@ -500,9 +512,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="sVt-Rg-f49" firstAttribute="leading" secondItem="Msg-6D-4tI" secondAttribute="leading" constant="380" id="ALf-ZF-2Wt"/>
+                                    <constraint firstItem="sVt-Rg-f49" firstAttribute="centerX" secondItem="Msg-6D-4tI" secondAttribute="centerX" id="CYF-d0-9Bu"/>
                                     <constraint firstItem="i1K-mb-W96" firstAttribute="top" secondItem="Msg-6D-4tI" secondAttribute="top" constant="234" id="VCD-Fw-s5B"/>
                                     <constraint firstItem="i1K-mb-W96" firstAttribute="leading" secondItem="Msg-6D-4tI" secondAttribute="leading" constant="362" id="d2Y-pJ-pYo"/>
                                     <constraint firstAttribute="trailing" secondItem="i1K-mb-W96" secondAttribute="trailing" constant="377" id="oVn-cS-BOT"/>
+                                    <constraint firstItem="sVt-Rg-f49" firstAttribute="centerY" secondItem="Msg-6D-4tI" secondAttribute="centerY" id="y6U-cX-aKo"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -663,7 +678,7 @@
                         <outlet property="leftPlayer6" destination="Kpz-B0-mpL" id="o73-Uh-Mho"/>
                         <outlet property="menuView" destination="i1K-mb-W96" id="30p-Pu-1Ab"/>
                         <outlet property="newPlayerButton" destination="0RO-bw-tuY" id="nee-fJ-Zjq"/>
-                        <outlet property="newPlayerMenu" destination="sVt-Rg-f49" id="kIP-O7-rLv"/>
+                        <outlet property="newPlayerMenuView" destination="sVt-Rg-f49" id="Heo-d5-irA"/>
                         <outlet property="newPlayerName" destination="H52-FC-LMx" id="o6a-1u-5Uq"/>
                         <outlet property="scoreFieldSet1" destination="Xco-P5-PgR" id="O1o-C1-oit"/>
                         <outlet property="scoreFieldSet2" destination="IeH-8T-rDp" id="jmh-sV-IXx"/>
@@ -679,41 +694,6 @@
                 <exit id="Xyk-5a-8m2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1546.875" y="841.40625"/>
-        </scene>
-        <!--New Player -->
-        <scene sceneID="zFG-QY-db0">
-            <objects>
-                <viewController title="New Player " id="pjU-Ur-mNA" customClass="OptionsScreenViewController" customModule="StatsVB" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rA4-QC-t4c">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="64v-e6-MH9">
-                                <rect key="frame" x="655" y="74" width="164" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3cp-VC-E3r">
-                                <rect key="frame" x="340" y="74" width="263" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="playerNameEntered:" destination="8fn-gI-Rmg" eventType="editingDidEnd" id="T7T-Sa-2Cg"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="FaQ-fq-MOC"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oaK-RK-QA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="8fn-gI-Rmg" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1558.59375" y="1633.59375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EPN-XH-Hje">
