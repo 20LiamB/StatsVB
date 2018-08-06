@@ -52,6 +52,20 @@ struct CoreDataHelper {
             return []
         }
     }
+    
+    static func retrievePlayers() -> [Player]{
+        do {
+            let fetchRequest = NSFetchRequest<Player>(entityName: "Player")
+            let results = try context.fetch(fetchRequest)
+            
+            return results
+        }
+        catch let error {
+            print("Could not fetch \(error.localizedDescription)")
+            
+            return []
+        }
+    }
 
 }
 

@@ -39,9 +39,9 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var hiddenMenuView: UIView!
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var newPlayerButton: UIButton!
-    @IBOutlet weak var newPlayerMenu: UIView!
     @IBOutlet weak var newPlayerName: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var newPlayerMenuView: UIView!
     
     @IBOutlet weak var kerrorsStepper: UIStepper!
     @IBOutlet weak var killsStepper: UIStepper!
@@ -56,7 +56,8 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var servesField: UITextField!
     @IBOutlet weak var servingPercentageField: UITextField!
     
-    var players: [Player] = [Player(name: "Player", playerNumber: 0), Player(name: "Player", playerNumber: 1), Player(name: "Player", playerNumber: 2), Player(name: "Player", playerNumber: 3), Player(name: "Player", playerNumber: 4), Player(name: "Player", playerNumber: 5) ]
+    var players: [Player] = []
+//        [Player(name: "Player", playerNumber: 0), Player(name: "Player", playerNumber: 1), Player(name: "Player", playerNumber: 2), Player(name: "Player", playerNumber: 3), Player(name: "Player", playerNumber: 4), Player(name: "Player", playerNumber: 5) ]
     
     func calculateAttackingPercentage(k: Int, e: Int, a: Int) -> Double{
         if a > 0 {
@@ -126,6 +127,14 @@ class MainScreenViewController: UIViewController {
         return playerButtons
     }
     
+    func resetColorOfButtons(){
+        let playerButtons = generateArrayOfButtons()
+        for b in playerButtons {
+            b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
+        }
+    }
+    
+    
     @IBAction func leftPlayer1Tapped(_ sender: Any) {
         player1ButtonTapped()
     }
@@ -134,12 +143,9 @@ class MainScreenViewController: UIViewController {
         kerrorsField.text = Int(kerrorsStepper.value).description
         killsStepper.value = Double(players[0].kills)
         killsField.text = Int(killsStepper.value).description
-        let playerButtons = generateArrayOfButtons()
-        for b in playerButtons {
-            b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
-        }
+        
+        resetColorOfButtons()
         selectedPlayer = players[0]
-        print(selectedPlayer?.kills)
         
         for x in players {
             x.isOn = false
@@ -158,10 +164,8 @@ class MainScreenViewController: UIViewController {
         kerrorsField.text = Int(kerrorsStepper.value).description
         killsStepper.value = Double(players[1].kills)
         killsField.text = Int(killsStepper.value).description
-        let playerButtons = generateArrayOfButtons()
-        for b in playerButtons {
-            b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
-        }
+        
+        resetColorOfButtons()
         selectedPlayer = players[1]
         
         for x in players {
@@ -182,10 +186,8 @@ class MainScreenViewController: UIViewController {
         kerrorsField.text = Int(kerrorsStepper.value).description
         killsStepper.value = Double(players[2].kills)
         killsField.text = Int(killsStepper.value).description
-        let playerButtons = generateArrayOfButtons()
-        for b in playerButtons {
-            b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
-        }
+        
+        resetColorOfButtons()
         selectedPlayer = players[2]
         
         for x in players {
@@ -205,10 +207,8 @@ class MainScreenViewController: UIViewController {
         kerrorsField.text = Int(kerrorsStepper.value).description
         killsStepper.value = Double(players[3].kills)
         killsField.text = Int(killsStepper.value).description
-        let playerButtons = generateArrayOfButtons()
-        for b in playerButtons {
-            b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
-        }
+        
+        resetColorOfButtons()
         selectedPlayer = players[3]
         
         for x in players {
@@ -229,10 +229,8 @@ class MainScreenViewController: UIViewController {
         killsStepper.value = Double(players[4].kills)
         killsField.text = Int(killsStepper.value).description
         
-        let playerButtons = generateArrayOfButtons()
-        for b in playerButtons {
-            b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
-        }
+        
+        resetColorOfButtons()
         selectedPlayer = players[4]
         
         for x in players {
@@ -252,10 +250,8 @@ class MainScreenViewController: UIViewController {
         kerrorsField.text = Int(kerrorsStepper.value).description
         killsStepper.value = Double(players[5].kills)
         killsField.text = Int(killsStepper.value).description
-        let playerButtons = generateArrayOfButtons()
-        for b in playerButtons {
-            b.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.3215686275, blue: 0.1764705882, alpha: 1)
-        }
+        
+        resetColorOfButtons()
         selectedPlayer = players[5]
         
         for x in players {
@@ -284,7 +280,7 @@ class MainScreenViewController: UIViewController {
     
     @IBAction func newPlayerPressed(_ sender: Any) {
         menuView.isHidden = true
-        newPlayerMenu.isHidden = false
+        newPlayerMenuView.isHidden = false
     }
     
     @IBAction func cancelPressed(_ sender: Any) {
@@ -312,15 +308,23 @@ class MainScreenViewController: UIViewController {
         default :
             print("No player selected.")
         }
-        leftPlayer1.setTitle(newPlayerName.text, for: .normal)
         
-        newPlayerMenu.isHidden = true
+        newPlayerMenuView.isHidden = true
         hiddenMenuView.isHidden = true
         menuView.isHidden = false
+        
+        selectedPlayer?.aces = 0
+        selectedPlayer?.attempts = 0
+        selectedPlayer?.attackingPercentage = 0
+        selectedPlayer?.ferrors = 0
+        selectedPlayer?.kerrors = 0
+        selectedPlayer?.kills = 0
+        selectedPlayer?.serves = 0
+        selectedPlayer?.servingPercentage = 0
     }
     
     @IBAction func cancelPlayer(_ sender: Any) {
-        newPlayerMenu.isHidden = true
+        newPlayerMenuView.isHidden = true
         hiddenMenuView.isHidden = true
         menuView.isHidden = false
     }
@@ -331,6 +335,7 @@ class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        players = CoreDataHelper.retrievePlayers()
         
         self.view.bringSubview(toFront: self.hiddenMenuView)
         var pNumber = 0
@@ -385,12 +390,12 @@ class MainScreenViewController: UIViewController {
             scoreFieldSet4.text = "0 - 0"
             scoreFieldSet5.text = "0 - 0"
             
-            leftPlayer1.setTitle("Player", for: .normal)
-            leftPlayer2.setTitle("Player", for: .normal)
-            leftPlayer3.setTitle("Player", for: .normal)
-            leftPlayer4.setTitle("Player", for: .normal)
-            leftPlayer5.setTitle("Player", for: .normal)
-            leftPlayer6.setTitle("Player", for: .normal)
+            leftPlayer1.setTitle("Player 1", for: .normal)
+            leftPlayer2.setTitle("Player 2", for: .normal)
+            leftPlayer3.setTitle("Player 3", for: .normal)
+            leftPlayer4.setTitle("Player 4", for: .normal)
+            leftPlayer5.setTitle("Player 5", for: .normal)
+            leftPlayer6.setTitle("Player 6", for: .normal)
         }
     }
     
