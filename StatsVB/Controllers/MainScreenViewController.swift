@@ -501,6 +501,7 @@ class MainScreenViewController: UIViewController {
             
         case "cancel":
             print("cancel bar button item tapped")
+            CoreDataHelper.delete(game: game!)
             
         default:
             print("unexpected segue identifier")
