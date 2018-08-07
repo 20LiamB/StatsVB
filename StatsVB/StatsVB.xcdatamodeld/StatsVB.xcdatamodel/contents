@@ -16,6 +16,7 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="newRelationship" inverseEntity="Player" syncable="YES"/>
+        <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" syncable="YES"/>
         <userInfo>
             <entry key="key" value="value"/>
         </userInfo>
@@ -32,10 +33,11 @@
         <attribute name="playerNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="serves" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="servingPercentage" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" syncable="YES"/>
         <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="newRelationship" inverseEntity="Game" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Game" positionX="-11" positionY="-217" width="128" height="268"/>
-        <element name="Player" positionX="-353" positionY="18" width="128" height="223"/>
+        <element name="Game" positionX="-11" positionY="-217" width="128" height="283"/>
+        <element name="Player" positionX="-353" positionY="18" width="128" height="238"/>
     </elements>
 </model>

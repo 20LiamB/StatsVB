@@ -59,7 +59,7 @@ class MainScreenViewController: UIViewController {
     var players: [Player] = []
 //        [Player(name: "Player", playerNumber: 0), Player(name: "Player", playerNumber: 1), Player(name: "Player", playerNumber: 2), Player(name: "Player", playerNumber: 3), Player(name: "Player", playerNumber: 4), Player(name: "Player", playerNumber: 5) ]
     
-    func calculateAttackingPercentage(k: Int, e: Int, a: Int) -> Double{
+    func calculateAttackingPercentage(k: Int32, e: Int32, a: Int32) -> Double{
         if a > 0 {
             let percentage = Double(1000*(k-e)/a)
             return percentage
@@ -71,8 +71,8 @@ class MainScreenViewController: UIViewController {
     @IBAction func kerrorsStepperChanged(_ sender: Any) {
         
         if isPlayerSelected == true{
-            selectedPlayer?.kerrors = Int(kerrorsStepper.value)
-            selectedPlayer?.attempts = Int(killsStepper.value + kerrorsStepper.value)
+            selectedPlayer?.kerrors = Int32(kerrorsStepper.value)
+            selectedPlayer?.attempts = Int32(killsStepper.value + kerrorsStepper.value)
             selectedPlayer?.attackingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.kills)!, e: (selectedPlayer?.kerrors)!, a: (selectedPlayer?.attempts)!)
             attackingPercentageField.text = "\(selectedPlayer?.attackingPercentage  ?? 0)"
         } else {
@@ -85,8 +85,8 @@ class MainScreenViewController: UIViewController {
     @IBAction func killsStepperChanged(_ sender: Any) {
 
         if isPlayerSelected == true {
-            selectedPlayer?.kills = Int(killsStepper.value)
-            selectedPlayer?.attempts = Int(killsStepper.value + kerrorsStepper.value)
+            selectedPlayer?.kills = Int32(killsStepper.value)
+            selectedPlayer?.attempts = Int32(killsStepper.value + kerrorsStepper.value)
             selectedPlayer?.attackingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.kills)!, e: (selectedPlayer?.kerrors)!, a: (selectedPlayer?.attempts)!)
             attackingPercentageField.text = "\(selectedPlayer?.attackingPercentage  ?? 0)"
         } else {
@@ -98,8 +98,8 @@ class MainScreenViewController: UIViewController {
     
     @IBAction func acesStepperChanged(_ sender: Any) {
         if isPlayerSelected == true {
-            selectedPlayer?.aces = Int(acesStepper.value)
-            selectedPlayer?.serves = Int(acesStepper.value + ferrorsStepper.value)
+            selectedPlayer?.aces = Int32(acesStepper.value)
+            selectedPlayer?.serves = Int32(acesStepper.value + ferrorsStepper.value)
             selectedPlayer?.servingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.aces)!, e: (selectedPlayer?.ferrors)!, a: (selectedPlayer?.serves)!)
             servingPercentageField.text = "\(selectedPlayer?.servingPercentage  ?? 0)"
         } else {
@@ -111,8 +111,8 @@ class MainScreenViewController: UIViewController {
     
     @IBAction func ferrorsStepperChanged(_ sender: Any) {
         if isPlayerSelected == true {
-            selectedPlayer?.ferrors = Int(ferrorsStepper.value)
-            selectedPlayer?.serves = Int(acesStepper.value + ferrorsStepper.value)
+            selectedPlayer?.ferrors = Int32(ferrorsStepper.value)
+            selectedPlayer?.serves = Int32(acesStepper.value + ferrorsStepper.value)
             selectedPlayer?.servingPercentage = calculateAttackingPercentage(k: (selectedPlayer?.aces)!, e: (selectedPlayer?.ferrors)!, a: (selectedPlayer?.serves)!)
             servingPercentageField.text = "\(selectedPlayer?.servingPercentage  ?? 0)"
         } else {
@@ -143,6 +143,15 @@ class MainScreenViewController: UIViewController {
         kerrorsField.text = Int(kerrorsStepper.value).description
         killsStepper.value = Double(players[0].kills)
         killsField.text = Int(killsStepper.value).description
+        acesStepper.value = Double(players[0].aces)
+        acesField.text = Int(acesStepper.value).description
+        
+        ferrorsStepper.value = Double(players[0].ferrors)
+        ferrorsField.text = Int(ferrorsStepper.value).description
+        attemptsField.text = players[0].attempts.description
+        servesField.text = players[0].serves.description
+        attackingPercentageField.text = players[0].attackingPercentage.description
+        servingPercentageField.text = players[0].attackingPercentage.description
         
         resetColorOfButtons()
         selectedPlayer = players[0]
@@ -164,6 +173,14 @@ class MainScreenViewController: UIViewController {
         kerrorsField.text = Int(kerrorsStepper.value).description
         killsStepper.value = Double(players[1].kills)
         killsField.text = Int(killsStepper.value).description
+        acesStepper.value = Double(players[1].aces)
+        acesField.text = Int(acesStepper.value).description
+        ferrorsStepper.value = Double(players[1].ferrors)
+        ferrorsField.text = Int(ferrorsStepper.value).description
+        attemptsField.text = players[1].attempts.description
+        servesField.text = players[1].serves.description
+        attackingPercentageField.text = players[1].attackingPercentage.description
+        servingPercentageField.text = players[1].attackingPercentage.description
         
         resetColorOfButtons()
         selectedPlayer = players[1]
@@ -186,6 +203,14 @@ class MainScreenViewController: UIViewController {
         kerrorsField.text = Int(kerrorsStepper.value).description
         killsStepper.value = Double(players[2].kills)
         killsField.text = Int(killsStepper.value).description
+        acesStepper.value = Double(players[2].aces)
+        acesField.text = Int(acesStepper.value).description
+        ferrorsStepper.value = Double(players[2].ferrors)
+        ferrorsField.text = Int(ferrorsStepper.value).description
+        attemptsField.text = players[2].attempts.description
+        servesField.text = players[2].serves.description
+        attackingPercentageField.text = players[2].attackingPercentage.description
+        servingPercentageField.text = players[2].attackingPercentage.description
         
         resetColorOfButtons()
         selectedPlayer = players[2]
@@ -207,6 +232,14 @@ class MainScreenViewController: UIViewController {
         kerrorsField.text = Int(kerrorsStepper.value).description
         killsStepper.value = Double(players[3].kills)
         killsField.text = Int(killsStepper.value).description
+        acesStepper.value = Double(players[3].aces)
+        acesField.text = Int(acesStepper.value).description
+        ferrorsStepper.value = Double(players[3].ferrors)
+        ferrorsField.text = Int(ferrorsStepper.value).description
+        attemptsField.text = players[3].attempts.description
+        servesField.text = players[3].serves.description
+        attackingPercentageField.text = players[3].attackingPercentage.description
+        servingPercentageField.text = players[3].attackingPercentage.description
         
         resetColorOfButtons()
         selectedPlayer = players[3]
@@ -228,6 +261,14 @@ class MainScreenViewController: UIViewController {
         kerrorsField.text = Int(kerrorsStepper.value).description
         killsStepper.value = Double(players[4].kills)
         killsField.text = Int(killsStepper.value).description
+        acesStepper.value = Double(players[4].aces)
+        acesField.text = Int(acesStepper.value).description
+        ferrorsStepper.value = Double(players[4].ferrors)
+        ferrorsField.text = Int(ferrorsStepper.value).description
+        attemptsField.text = players[4].attempts.description
+        servesField.text = players[4].serves.description
+        attackingPercentageField.text = players[4].attackingPercentage.description
+        servingPercentageField.text = players[4].attackingPercentage.description
         
         
         resetColorOfButtons()
@@ -250,6 +291,14 @@ class MainScreenViewController: UIViewController {
         kerrorsField.text = Int(kerrorsStepper.value).description
         killsStepper.value = Double(players[5].kills)
         killsField.text = Int(killsStepper.value).description
+        acesStepper.value = Double(players[5].aces)
+        acesField.text = Int(acesStepper.value).description
+        ferrorsStepper.value = Double(players[5].ferrors)
+        ferrorsField.text = Int(ferrorsStepper.value).description
+        attemptsField.text = players[5].attempts.description
+        servesField.text = players[5].serves.description
+        attackingPercentageField.text = players[5].attackingPercentage.description
+        servingPercentageField.text = players[5].attackingPercentage.description
         
         resetColorOfButtons()
         selectedPlayer = players[5]
@@ -315,12 +364,12 @@ class MainScreenViewController: UIViewController {
         
         selectedPlayer?.aces = 0
         selectedPlayer?.attempts = 0
-        selectedPlayer?.attackingPercentage = 0
+        selectedPlayer?.attackingPercentage = 0.0
         selectedPlayer?.ferrors = 0
         selectedPlayer?.kerrors = 0
         selectedPlayer?.kills = 0
         selectedPlayer?.serves = 0
-        selectedPlayer?.servingPercentage = 0
+        selectedPlayer?.servingPercentage = 0.0
     }
     
     @IBAction func cancelPlayer(_ sender: Any) {
@@ -334,13 +383,39 @@ class MainScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //creating players to add them into the 'players' array
+        var player1 = CoreDataHelper.newPlayer()
+        var player2 = CoreDataHelper.newPlayer()
+        var player3 = CoreDataHelper.newPlayer()
+        var player4 = CoreDataHelper.newPlayer()
+        var player5 = CoreDataHelper.newPlayer()
+        var player6 = CoreDataHelper.newPlayer()
+        
+        players.append(player1)
+        players.append(player2)
+        players.append(player3)
+        players.append(player4)
+        players.append(player5)
+        players.append(player6)
+        
+        //assigning counts to each player
+        var count = 0
+        for player in players {
+            players[0].playerNumber = Int32(count)
+            count += 1
+        }
+        //have to save game and save player
+        
+        
+        
+        
         
         players = CoreDataHelper.retrievePlayers()
         
         self.view.bringSubview(toFront: self.hiddenMenuView)
         var pNumber = 0
         for p in players {
-            p.playerNumber = pNumber
+            p.playerNumber = Int32(pNumber)
             pNumber += 1
         }
         

@@ -27,6 +27,7 @@ struct CoreDataHelper {
         
         return game
     }
+   
     static func saveGame() {
         do {
             try context.save()
@@ -53,6 +54,25 @@ struct CoreDataHelper {
         }
     }
     
+    static func newPlayer() -> Player{
+        let player = NSEntityDescription.insertNewObject(forEntityName: "Player", into: context) as! Player
+        
+        return player
+    }
+    
+    static func savePlayer() {
+        do{
+            try context.save()
+        } catch let error {
+            print("Could not save \(error.localizedDescription)")
+        }
+    }
+    
+    static func delete(player: Player) {
+        context.delete(player)
+        saveGame()
+    }
+    
     static func retrievePlayers() -> [Player]{
         do {
             let fetchRequest = NSFetchRequest<Player>(entityName: "Player")
@@ -66,6 +86,7 @@ struct CoreDataHelper {
             return []
         }
     }
+    
 
 }
 
