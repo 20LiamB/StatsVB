@@ -46,7 +46,7 @@ class ListGamesTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
-        
+        let destination = segue.destination as! MainScreenViewController
         switch identifier {
             case "displayMainScreen":
                 guard let indexPath = tableView.indexPathForSelectedRow else {return}
@@ -56,9 +56,23 @@ class ListGamesTableViewController: UITableViewController {
                 let destination = segue.destination as! MainScreenViewController
             
                 destination.game = game
+                destination.players = CoreDataHelper.retrievePlayers()
             
             case "newGame":
                 print("create game bar item tapped")
+                destination.game = CoreDataHelper.newGame()
+                let player1 = CoreDataHelper.newPlayer()
+                let player2 = CoreDataHelper.newPlayer()
+                let player3 = CoreDataHelper.newPlayer()
+                let player4 = CoreDataHelper.newPlayer()
+                let player5 = CoreDataHelper.newPlayer()
+                let player6 = CoreDataHelper.newPlayer()
+                destination.players.append(player1)
+                destination.players.append(player2)
+                destination.players.append(player3)
+                destination.players.append(player4)
+                destination.players.append(player5)
+                destination.players.append(player6)
             
             default:
                 print("unexpected segue identifier")

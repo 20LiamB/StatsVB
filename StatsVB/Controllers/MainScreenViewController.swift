@@ -384,19 +384,6 @@ class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //creating players to add them into the 'players' array
-        var player1 = CoreDataHelper.newPlayer()
-        var player2 = CoreDataHelper.newPlayer()
-        var player3 = CoreDataHelper.newPlayer()
-        var player4 = CoreDataHelper.newPlayer()
-        var player5 = CoreDataHelper.newPlayer()
-        var player6 = CoreDataHelper.newPlayer()
-        
-        players.append(player1)
-        players.append(player2)
-        players.append(player3)
-        players.append(player4)
-        players.append(player5)
-        players.append(player6)
         
         //assigning counts to each player
         var count = 0
@@ -406,11 +393,6 @@ class MainScreenViewController: UIViewController {
         }
         //have to save game and save player
         
-        
-        
-        
-        
-        players = CoreDataHelper.retrievePlayers()
         
         self.view.bringSubview(toFront: self.hiddenMenuView)
         var pNumber = 0
