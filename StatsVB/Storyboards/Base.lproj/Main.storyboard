@@ -375,14 +375,14 @@
                                         <rect key="frame" x="380" y="242" width="330" height="284"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H52-FC-LMx">
-                                                <rect key="frame" x="28" y="29" width="228" height="30"/>
+                                                <rect key="frame" x="40" y="29" width="230" height="30"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7j5-3R-HeH">
-                                                <rect key="frame" x="37" y="222" width="210" height="30"/>
+                                                <rect key="frame" x="43" y="217" width="210" height="30"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="zAp-mf-8hp"/>
@@ -402,7 +402,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkO-M7-d17">
-                                                <rect key="frame" x="37" y="135" width="210" height="30"/>
+                                                <rect key="frame" x="43" y="127" width="210" height="30"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="slI-4n-CdC"/>
@@ -424,16 +424,16 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="7j5-3R-HeH" firstAttribute="leading" secondItem="sVt-Rg-f49" secondAttribute="leading" constant="37" id="E7Y-ac-0I6"/>
-                                            <constraint firstItem="H52-FC-LMx" firstAttribute="centerX" secondItem="XkO-M7-d17" secondAttribute="centerX" id="G1C-6K-6I3"/>
+                                            <constraint firstItem="7j5-3R-HeH" firstAttribute="leading" secondItem="sVt-Rg-f49" secondAttribute="leading" constant="43" id="E7Y-ac-0I6"/>
+                                            <constraint firstItem="H52-FC-LMx" firstAttribute="centerX" secondItem="XkO-M7-d17" secondAttribute="centerX" constant="7" id="G1C-6K-6I3"/>
                                             <constraint firstItem="H52-FC-LMx" firstAttribute="top" secondItem="sVt-Rg-f49" secondAttribute="top" constant="29" id="HlS-wU-1xS"/>
-                                            <constraint firstItem="XkO-M7-d17" firstAttribute="top" secondItem="H52-FC-LMx" secondAttribute="bottom" constant="76" id="KsH-qE-GjU"/>
+                                            <constraint firstItem="XkO-M7-d17" firstAttribute="top" secondItem="H52-FC-LMx" secondAttribute="bottom" constant="68" id="KsH-qE-GjU"/>
                                             <constraint firstItem="7j5-3R-HeH" firstAttribute="leading" secondItem="XkO-M7-d17" secondAttribute="leading" id="Qnq-uO-Def"/>
-                                            <constraint firstItem="7j5-3R-HeH" firstAttribute="top" secondItem="XkO-M7-d17" secondAttribute="bottom" constant="57" id="dGE-xi-GoG"/>
-                                            <constraint firstAttribute="bottom" secondItem="7j5-3R-HeH" secondAttribute="bottom" constant="32" id="ld1-lp-E6d"/>
-                                            <constraint firstAttribute="trailing" secondItem="H52-FC-LMx" secondAttribute="trailing" constant="74" id="mDW-KX-EAE"/>
-                                            <constraint firstItem="H52-FC-LMx" firstAttribute="leading" secondItem="sVt-Rg-f49" secondAttribute="leading" constant="28" id="paZ-Z5-EYT"/>
-                                            <constraint firstItem="H52-FC-LMx" firstAttribute="centerX" secondItem="7j5-3R-HeH" secondAttribute="centerX" id="wYL-hV-M4y"/>
+                                            <constraint firstItem="7j5-3R-HeH" firstAttribute="top" secondItem="XkO-M7-d17" secondAttribute="bottom" constant="60" id="dGE-xi-GoG"/>
+                                            <constraint firstAttribute="bottom" secondItem="7j5-3R-HeH" secondAttribute="bottom" constant="37" id="ld1-lp-E6d"/>
+                                            <constraint firstAttribute="trailing" secondItem="H52-FC-LMx" secondAttribute="trailing" constant="60" id="mDW-KX-EAE"/>
+                                            <constraint firstItem="H52-FC-LMx" firstAttribute="leading" secondItem="sVt-Rg-f49" secondAttribute="leading" constant="40" id="paZ-Z5-EYT"/>
+                                            <constraint firstItem="H52-FC-LMx" firstAttribute="centerX" secondItem="7j5-3R-HeH" secondAttribute="centerX" constant="7" id="wYL-hV-M4y"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1K-mb-W96" userLabel="menuView">
