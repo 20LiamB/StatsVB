@@ -24,7 +24,9 @@ class ListGamesTableViewController: UITableViewController {
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
-        games = CoreDataHelper.retrieveGames()
+
+        games = CoreDataHelper.retrieveGames()        
+        
     }
     public override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
