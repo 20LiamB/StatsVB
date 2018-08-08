@@ -11,7 +11,7 @@ import UIKit
 
 class MainScreenViewController: UIViewController {
     
-    var game: Game?
+    var game: Game? 
     var selectedPlayer: Player?
     var kills: Int = 0
     var kerrors: Int = 0
@@ -401,6 +401,8 @@ class MainScreenViewController: UIViewController {
             pNumber += 1
         }
         
+        
+        
         let longGesture1 = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
         let longGesture2 = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
         let longGesture3 = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
@@ -428,18 +430,36 @@ class MainScreenViewController: UIViewController {
             scoreFieldSet4.text = game.score4
             scoreFieldSet5.text = game.score5
 
-            
-            leftPlayer1.setTitle(game.leftPlayer1Name, for: .normal)
-            
-            leftPlayer2.setTitle(game.leftPlayer2Name, for: .normal)
-        
-            leftPlayer3.setTitle(game.leftPlayer3Name, for: .normal)
-            
-            leftPlayer4.setTitle(game.leftPlayer4Name, for: .normal)
-            
-            leftPlayer5.setTitle(game.leftPlayer5Name, for: .normal)
-            
-            leftPlayer6.setTitle(game.leftPlayer6Name, for: .normal)
+            if let player1 = game.leftPlayer1Name {
+                leftPlayer1.setTitle(player1, for: .normal)
+            } else {
+                leftPlayer1.setTitle("Player 1", for: .normal)
+            }
+            if let player2 = game.leftPlayer2Name {
+                leftPlayer2.setTitle(player2, for: .normal)
+            } else {
+                leftPlayer2.setTitle("Player 2", for: .normal)
+            }
+            if let player3 = game.leftPlayer3Name {
+                leftPlayer3.setTitle(player3, for: .normal)
+            } else {
+                leftPlayer3.setTitle("Player 3", for: .normal)
+            }
+            if let player4 = game.leftPlayer4Name {
+                leftPlayer4.setTitle(player4, for: .normal)
+            } else {
+                leftPlayer4.setTitle("Player 4", for: .normal)
+            }
+            if let player5 = game.leftPlayer5Name {
+                leftPlayer5.setTitle(player5, for: .normal)
+            } else {
+                leftPlayer5.setTitle("Player 5", for: .normal)
+            }
+            if let player6 = game.leftPlayer6Name {
+                leftPlayer6.setTitle(player6, for: .normal)
+            } else {
+                leftPlayer6.setTitle("Player 6", for: .normal)
+            }
             
         } else {
             titleTextField.text = ""
