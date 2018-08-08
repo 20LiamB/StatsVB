@@ -433,13 +433,13 @@ class MainScreenViewController: UIViewController {
             
             leftPlayer2.setTitle(game.leftPlayer2Name, for: .normal)
         
-            leftPlayer3.setTitle(game.leftPlayer2Name, for: .normal)
+            leftPlayer3.setTitle(game.leftPlayer3Name, for: .normal)
             
-            leftPlayer4.setTitle(game.leftPlayer2Name, for: .normal)
+            leftPlayer4.setTitle(game.leftPlayer4Name, for: .normal)
             
-            leftPlayer5.setTitle(game.leftPlayer2Name, for: .normal)
+            leftPlayer5.setTitle(game.leftPlayer5Name, for: .normal)
             
-            leftPlayer6.setTitle(game.leftPlayer2Name, for: .normal)
+            leftPlayer6.setTitle(game.leftPlayer6Name, for: .normal)
             
         } else {
             titleTextField.text = ""
