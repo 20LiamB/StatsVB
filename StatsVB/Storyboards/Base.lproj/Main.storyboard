@@ -538,7 +538,7 @@
                                     <action selector="killsStepperChanged:" destination="WXK-YX-6aC" eventType="valueChanged" id="NWA-3B-Y7L"/>
                                 </connections>
                             </stepper>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PZH-Nj-If4">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PZH-Nj-If4">
                                 <rect key="frame" x="280" y="150" width="605" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0 - 0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xco-P5-PgR">
@@ -710,6 +710,11 @@
                             <constraint firstItem="12J-k1-Vm0" firstAttribute="centerY" secondItem="ks9-EC-ZsC" secondAttribute="centerY" id="zum-GG-a9g"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cs9-By-mJo"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Msg-6D-4tI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RFI-QP-EEP">
