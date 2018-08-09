@@ -88,10 +88,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Msg-6D-4tI" userLabel="hiddenBackgroundView">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVt-Rg-f49">
-                                        <rect key="frame" x="201.5" y="235" width="621" height="318"/>
+                                        <rect key="frame" x="245.5" y="268" width="621" height="318"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7j5-3R-HeH">
                                                 <rect key="frame" x="186" y="233" width="250" height="30"/>
@@ -164,7 +164,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1K-mb-W96" userLabel="menuView">
-                                        <rect key="frame" x="311.5" y="239" width="400" height="290"/>
+                                        <rect key="frame" x="355.5" y="272" width="400" height="290"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RO-bw-tuY">
                                                 <rect key="frame" x="20" y="103" width="360" height="35"/>
@@ -613,11 +613,6 @@
                             <constraint firstItem="sVt-Rg-f49" firstAttribute="centerX" secondItem="cs9-By-mJo" secondAttribute="centerX" id="yYQ-58-gPZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cs9-By-mJo"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Msg-6D-4tI"/>
-                            </mask>
-                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RFI-QP-EEP">

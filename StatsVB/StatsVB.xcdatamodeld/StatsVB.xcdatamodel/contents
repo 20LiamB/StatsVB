@@ -38,6 +38,6 @@
     </entity>
     <elements>
         <element name="Game" positionX="-11" positionY="-217" width="128" height="283"/>
-        <element name="Player" positionX="-353" positionY="18" width="128" height="238"/>
+        <element name="Player" positionX="-353" positionY="18" width="128" height="240"/>
     </elements>
 </model>
